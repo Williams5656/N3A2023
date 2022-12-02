@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Crespo;
+package pron3a;
 
 /**
  *
  * @author PC01
  */
-public class Clase1 {
+public class LeninCorrea {
     public static void main(String[] args) {
-        System.out.println("Mateo Crespo");
+        System.out.println("Lenin");
     }
 }
