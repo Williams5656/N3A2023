@@ -7,10 +7,10 @@ package pron3a;
 
 /**
  *
- * @author PC01
+ * @author lenin
  */
-public class LeninCorrea {
+public class Correa {
     public static void main(String[] args) {
-        System.out.println("Lenin");
+        System.out.println("Lenin Correa");
     }
 }
