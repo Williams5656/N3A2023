@@ -7,6 +7,8 @@ package SistemaProductos;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import SistemaProductos.lista_usuario;
 
 /**
  *
@@ -18,6 +20,20 @@ public class usuarios extends javax.swing.JInternalFrame {
 
     public usuarios() {
         initComponents();
+    }
+     public void actualizar() {
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.setRowCount(0);
+        
+        for (int i = 0; i < lista.size(); i++) {
+            
+        Object[] fila = new Object[3];
+        fila[0] = lista.get(i).getCodigo();
+        fila[1] = lista.get(i).getUsuario();
+        fila[2] = lista.get(i).getCedula();
+        modelo.addRow(fila);
+        }
     }
 
     /**
@@ -261,7 +277,7 @@ public class usuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_guardarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-       System.exit(0);
+       this.dispose();
     }//GEN-LAST:event_salirActionPerformed
 
     private void guardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar1ActionPerformed

@@ -34,8 +34,8 @@ public class lista_usuario extends javax.swing.JInternalFrame {
 
             Object[] fila = new Object[3];
             fila[0] = lista.get(i).getCodigo();
-            fila[0] = lista.get(i).getUsuario();
-            fila[0] = lista.get(i).getCedula();
+            fila[1] = lista.get(i).getUsuario();
+            fila[2] = lista.get(i).getCedula();
             modelo.addRow(fila);
         }
 
