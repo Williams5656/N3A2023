@@ -27,24 +27,67 @@ public class Productos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        productos = new javax.swing.JLabel();
         codigo = new javax.swing.JLabel();
         nombre = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        tipo = new javax.swing.JLabel();
         calidad = new javax.swing.JLabel();
         precio = new javax.swing.JLabel();
+        guardar = new javax.swing.JButton();
+        editar = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
+        id_tipo = new javax.swing.JComboBox<>();
+        id_codigo = new javax.swing.JTextField();
+        id_nombre = new javax.swing.JTextField();
+        id_calidad = new javax.swing.JTextField();
+        id_precio = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
-        jLabel1.setText("PRODUCTOS");
+        productos.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        productos.setText("PRODUCTOS");
 
+        codigo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         codigo.setText("CODIGO");
 
+        nombre.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         nombre.setText("NOMBRE");
 
-        jLabel4.setText("TIPO");
+        tipo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        tipo.setText("TIPO");
 
+        calidad.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         calidad.setText("CALIDAD");
 
+        precio.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         precio.setText("PRECIO");
+
+        guardar.setText("GUARDAR");
+
+        editar.setText("EDITAR");
+
+        eliminar.setText("ELIMINAR");
+
+        id_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        id_codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_codigoActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,46 +96,98 @@ public class Productos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(366, 366, 366)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombre)
+                            .addComponent(tipo)
                             .addComponent(codigo)
-                            .addComponent(jLabel4)
+                            .addComponent(nombre)
                             .addComponent(calidad)
-                            .addComponent(precio))))
-                .addContainerGap(431, Short.MAX_VALUE))
+                            .addComponent(precio))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(id_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_calidad, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(guardar)
+                        .addGap(120, 120, 120)
+                        .addComponent(editar)
+                        .addGap(112, 112, 112)
+                        .addComponent(eliminar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(productos)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(59, 59, 59)
-                .addComponent(codigo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(calidad)
-                .addGap(18, 18, 18)
-                .addComponent(precio)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(productos)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(codigo)
+                            .addComponent(id_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombre)
+                            .addComponent(id_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tipo)
+                            .addComponent(id_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calidad)
+                            .addComponent(id_calidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(precio)
+                            .addComponent(id_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(guardar)
+                        .addGap(97, 97, 97))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(eliminar)
+                            .addComponent(editar))
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void id_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_codigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id_codigoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel calidad;
     private javax.swing.JLabel codigo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton editar;
+    private javax.swing.JButton eliminar;
+    private javax.swing.JButton guardar;
+    private javax.swing.JTextField id_calidad;
+    private javax.swing.JTextField id_codigo;
+    private javax.swing.JTextField id_nombre;
+    private javax.swing.JTextField id_precio;
+    private javax.swing.JComboBox<String> id_tipo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel precio;
+    private javax.swing.JLabel productos;
+    private javax.swing.JLabel tipo;
     // End of variables declaration//GEN-END:variables
 }
