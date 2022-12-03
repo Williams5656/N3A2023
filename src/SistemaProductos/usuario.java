@@ -2,8 +2,8 @@
 package SistemaProductos;
 
 public class usuario {
-    int contraseña;
-    String usuarion;
+    int contraseña=1234;
+    String usuarion="admin";
 
     public usuario(int contraseña, String usuarion) {
         this.contraseña = contraseña;
@@ -25,6 +25,4 @@ public class usuario {
     public void setUsuarion(String usuarion) {
         this.usuarion = usuarion;
     }
-    
-    
 }
