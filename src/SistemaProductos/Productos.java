@@ -6,6 +6,7 @@
 package SistemaProductos;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -49,6 +50,20 @@ public class Productos extends javax.swing.JInternalFrame {
         }
         
         tabla.setModel(modelo);
+    }
+     public void actualizar(){
+        modelo.setRowCount(0);
+        for(int i=0; i< lista.size(); i++){
+          Object[] fila = new Object[7];
+          fila[0] = lista.get(i).getCodigo();
+          fila[1] = lista.get(i).getNombre();
+          fila[2] = lista.get(i).getTipo();
+          fila[3] = lista.get(i).getProveedor();
+          fila[4] =lista.get(i).getCalidad();
+          fila[5] = lista.get(i).getPrecio();
+          modelo.addRow(fila);
+          
+        }
     }
 
     /**
@@ -107,6 +122,11 @@ public class Productos extends javax.swing.JInternalFrame {
         });
 
         btn_editar.setText("EDITAR");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
 
         btn_eliminar.setText("ELIMINAR");
 
@@ -140,6 +160,11 @@ public class Productos extends javax.swing.JInternalFrame {
         proveedor.setText("PROVEEDOR");
 
         btn_salir.setText("SALIR");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -255,6 +280,40 @@ public class Productos extends javax.swing.JInternalFrame {
         id_precio.setText(lista.get(selec).getPrecio()+"");
         
     }//GEN-LAST:event_tablaMousePressed
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+       
+    }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        modelo.setRowCount(0);
+        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE MODIFICAR?"); 
+        int selec = tabla.getSelectedRow();
+        lista.get(selec).setNombre(id_nombre.getText());
+        lista.get(selec).setTipo(txt_tipo.getText());
+        lista.get(selec).setProveedor(id_proveedor.getText());
+        lista.get(selec).setCalidad(id_calidad.getText());
+        lista.get(selec).setPrecio(Double.valueOf(id_precio.getText()));
+        limpiar();
+        actualizar();
+       
+    }                                             
+   public void limpiar(){
+       for(int i=0;i<lista.size();i++){
+           int a = lista.size()+1;
+           if(lista.get(i).getCodigo()==a){
+             id_codigo.setText(lista.size()+234+"");  
+           }
+       }
+       id_codigo.setText(lista.size()+1+"");
+       id_nombre.setText("");
+       txt_tipo.setText("");
+       id_proveedor.setText("");
+       id_calidad.setText("");
+       id_precio.setText("");
+       
+   
+    }//GEN-LAST:event_btn_editarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
