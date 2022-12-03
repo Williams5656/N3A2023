@@ -3,26 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases;
+package SistemaProductos;
 
 /**
  *
  * @author PC01
  */
 public class Persona {
+    protected int cedula;
     protected String nombre;
     protected String apellido;
-    protected int edad;
-    protected String cedula;
+    protected int edad; 
     protected String telefono;
 
-    public Persona(String nombre, String apellido, int edad, String cedula, String telefono) {
+    public Persona(int cedula, String nombre, String apellido, int edad, String telefono) {
+        this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.cedula = cedula;
         this.telefono = telefono;
     }
+//,,,
+    
+  public int getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -48,13 +58,6 @@ public class Persona {
         this.edad = edad;
     }
 
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
 
     public String getTelefono() {
         return telefono;
