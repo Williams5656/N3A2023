@@ -2,7 +2,6 @@ package interfaz;
 
 import SistemaProductos.Escritorio;
 import java.awt.Color;
-import SistemaProductos.usuario;
 import javax.swing.JOptionPane;
 
 /**
