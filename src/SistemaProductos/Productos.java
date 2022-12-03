@@ -129,6 +129,11 @@ public class Productos extends javax.swing.JInternalFrame {
         });
 
         btn_eliminar.setText("ELIMINAR");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
 
         id_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,8 +271,17 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_id_codigoActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        // TODO add your handling code here:
-        
+        modelo.setRowCount(0);
+        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE GUARDAR?"); 
+        if (!id_codigo.getText().isEmpty() && !id_nombre.getText().isEmpty() && !id_precio.getText().isEmpty() && !txt_tipo.getText().isEmpty() && !id_proveedor.getText().isEmpty()){ //aumentar el  && para completar los dem[as campos
+           Productos_class producto= new Productos_class(Integer.parseInt(id_codigo.getText()), txt_tipo.getText(),id_nombre.getText(), id_proveedor.getText(), id_calidad.getText(), Double.valueOf(id_precio.getText()));
+           lista.add(producto);
+           limpiar();
+           actualizar();
+           
+        }else {
+            JOptionPane.showMessageDialog(null, "No dejar campos vacios");
+        }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void tablaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMousePressed
@@ -314,6 +328,17 @@ public class Productos extends javax.swing.JInternalFrame {
        
    
     }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        modelo.setRowCount(0);
+        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE ELIMINAR?");
+        if (variable==0){
+        int selec = tabla.getSelectedRow();
+        lista.remove(selec);
+        limpiar();
+        actualizar();
+        }
+    }//GEN-LAST:event_btn_eliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
