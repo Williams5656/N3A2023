@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.Panel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import interfaz.Login;
 
 /**
  *
@@ -61,8 +62,18 @@ public class Escritorio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelMenu.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 510));
+        panelMenu.setLayer(lblTotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
+        panelMenu.setLayout(panelMenuLayout);
+        panelMenuLayout.setHorizontalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panelMenuLayout.setVerticalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         jMenu1.setText("USUARIOS");
 
@@ -124,6 +135,11 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem7.setText("NUEVO");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem7);
 
         jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/LISTA.png"))); // NOI18N
@@ -205,8 +221,22 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        dispose();
+//         login rojo = new login();
+//        rojo.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+           Ventas ventas = new Ventas();
+        panelMenu.add(ventas);
+        Dimension destopSize = panelMenu.getSize();
+        Dimension FrameSize = ventas.getSize();
+        ventas.setLocation(
+                (destopSize.width - FrameSize.width) / 2,
+                (destopSize.height - FrameSize.height) / 2);
+        ventas.show();
+        ventas.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
