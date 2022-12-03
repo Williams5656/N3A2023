@@ -50,6 +50,8 @@ public class Escritorio extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +77,7 @@ public class Escritorio extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/LISTA.png"))); // NOI18N
         jMenuItem2.setText("LISTA");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +90,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenu2.setText("PERSONAS");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem3.setText("NUEVO");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +99,7 @@ public class Escritorio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/LISTA.png"))); // NOI18N
         jMenuItem4.setText("LISTA");
         jMenu2.add(jMenuItem4);
 
@@ -102,6 +107,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenu3.setText("PRODUCTOS");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem5.setText("NUEVO");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +116,7 @@ public class Escritorio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/LISTA.png"))); // NOI18N
         jMenuItem6.setText("LISTA");
         jMenu3.add(jMenuItem6);
 
@@ -117,9 +124,11 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenu4.setText("VENTAS");
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem7.setText("NUEVO");
         jMenu4.add(jMenuItem7);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/LISTA.png"))); // NOI18N
         jMenuItem8.setText("LISTA");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +138,20 @@ public class Escritorio extends javax.swing.JFrame {
         jMenu4.add(jMenuItem8);
 
         jMenuBar1.add(jMenu4);
+
+        jMenu5.setForeground(new java.awt.Color(255, 0, 0));
+        jMenu5.setText("SALIR");
+
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/EXIT.png"))); // NOI18N
+        jMenuItem9.setText("SALIR");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -183,6 +206,10 @@ public class Escritorio extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+  dispose();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +250,7 @@ public class Escritorio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -232,6 +260,7 @@ public class Escritorio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JDesktopPane panelMenu;
     // End of variables declaration//GEN-END:variables
 }
