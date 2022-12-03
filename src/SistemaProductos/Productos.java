@@ -27,15 +27,60 @@ public class Productos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        codigo = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        calidad = new javax.swing.JLabel();
+        precio = new javax.swing.JLabel();
+
+        jLabel1.setText("PRODUCTOS");
+
+        codigo.setText("CODIGO");
+
+        nombre.setText("NOMBRE");
+
+        jLabel4.setText("TIPO");
+
+        calidad.setText("CALIDAD");
+
+        precio.setText("PRECIO");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 870, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nombre)
+                            .addComponent(codigo)
+                            .addComponent(jLabel4)
+                            .addComponent(calidad)
+                            .addComponent(precio))))
+                .addContainerGap(431, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addGap(59, 59, 59)
+                .addComponent(codigo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(calidad)
+                .addGap(18, 18, 18)
+                .addComponent(precio)
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         pack();
@@ -43,5 +88,11 @@ public class Productos extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel calidad;
+    private javax.swing.JLabel codigo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JLabel precio;
     // End of variables declaration//GEN-END:variables
 }
