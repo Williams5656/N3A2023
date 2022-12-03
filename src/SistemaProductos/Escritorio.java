@@ -11,7 +11,8 @@ import java.awt.Image;
 import java.awt.Panel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import interfaz.Login;
+
+
 
 /**
  *
@@ -217,13 +218,21 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-
+    usuarios usuario = new usuarios();
+        panelMenu.add(usuario);
+        Dimension destopSize = panelMenu.getSize();
+        Dimension FrameSize = usuario.getSize();
+        usuario.setLocation(
+                (destopSize.width - FrameSize.width) / 2,
+                (destopSize.height - FrameSize.height) / 2);
+        usuario.show();
+        usuario.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-//         login rojo = new login();
-//        rojo.setVisible(true);
-//        this.setVisible(false);
+//        login rojo = new login();
+//       rojo.setVisible(true);
+//       this.setVisible(false);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
