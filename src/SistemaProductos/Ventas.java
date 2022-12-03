@@ -156,7 +156,7 @@ public class Ventas extends javax.swing.JInternalFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Escritorio().setVisible(true);
+                new Ventas().setVisible(true);
             }
         });
     }
