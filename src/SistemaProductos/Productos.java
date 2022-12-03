@@ -33,9 +33,9 @@ public class Productos extends javax.swing.JInternalFrame {
         tipo = new javax.swing.JLabel();
         calidad = new javax.swing.JLabel();
         precio = new javax.swing.JLabel();
-        guardar = new javax.swing.JButton();
-        editar = new javax.swing.JButton();
-        eliminar = new javax.swing.JButton();
+        btn_guardar = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
         id_tipo = new javax.swing.JComboBox<>();
         id_codigo = new javax.swing.JTextField();
         id_nombre = new javax.swing.JTextField();
@@ -43,6 +43,7 @@ public class Productos extends javax.swing.JInternalFrame {
         id_precio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btn_limpiar = new javax.swing.JButton();
 
         productos.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         productos.setText("PRODUCTOS");
@@ -62,11 +63,11 @@ public class Productos extends javax.swing.JInternalFrame {
         precio.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         precio.setText("PRECIO");
 
-        guardar.setText("GUARDAR");
+        btn_guardar.setText("GUARDAR");
 
-        editar.setText("EDITAR");
+        btn_editar.setText("EDITAR");
 
-        eliminar.setText("ELIMINAR");
+        btn_eliminar.setText("ELIMINAR");
 
         id_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -88,6 +89,8 @@ public class Productos extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        btn_limpiar.setText("LIMPIAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,16 +116,19 @@ public class Productos extends javax.swing.JInternalFrame {
                         .addGap(52, 52, 52)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(guardar)
-                        .addGap(120, 120, 120)
-                        .addComponent(editar)
-                        .addGap(112, 112, 112)
-                        .addComponent(eliminar))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(305, 305, 305)
                         .addComponent(productos)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(btn_guardar)
+                .addGap(120, 120, 120)
+                .addComponent(btn_editar)
+                .addGap(112, 112, 112)
+                .addComponent(btn_eliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_limpiar)
+                .addGap(78, 78, 78))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,12 +161,13 @@ public class Productos extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(guardar)
+                        .addComponent(btn_guardar)
                         .addGap(97, 97, 97))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(eliminar)
-                            .addComponent(editar))
+                            .addComponent(btn_eliminar)
+                            .addComponent(btn_editar)
+                            .addComponent(btn_limpiar))
                         .addContainerGap())))
         );
 
@@ -173,11 +180,12 @@ public class Productos extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_eliminar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_limpiar;
     private javax.swing.JLabel calidad;
     private javax.swing.JLabel codigo;
-    private javax.swing.JButton editar;
-    private javax.swing.JButton eliminar;
-    private javax.swing.JButton guardar;
     private javax.swing.JTextField id_calidad;
     private javax.swing.JTextField id_codigo;
     private javax.swing.JTextField id_nombre;
