@@ -2,7 +2,6 @@ package interfaz;
 
 import SistemaProductos.Escritorio;
 import java.awt.Color;
-import SistemaProductos.usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -145,10 +144,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirMouseExited
 
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
-        usuario us = new usuario(12345,"admin");
+        String usuario = "admin";
+        String contraseña = "12345";
+        
         Escritorio desktop = new Escritorio();
         
-        if (TxtUsuario.getText().equals(us.getUsuario()) || TxtPassword.getText().equals(us.getContraseña())) {
+        if (TxtUsuario.getText().equals(usuario) || TxtPassword.getText().equals(contraseña)) {
             desktop.setVisible(true);
             this.dispose();
         }else{
