@@ -167,6 +167,7 @@ public class Personas extends javax.swing.JInternalFrame {
             fila[4] = list.get(i).getTelefono();
             fila[5] = list.get(i).getDireccion();
             modelo.addRow(fila);
+            
         }
     }
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
