@@ -1,28 +1,23 @@
 
 package SistemaProductos;
 
-public class usuario {
-    int contraseña=1234;
-    String usuarion="admin";
+import javax.swing.JTextField;
 
-    public usuario(int contraseña, String usuarion) {
+public class usuario {
+    int contraseña;
+    String usuario;
+
+    public usuario(int contraseña, String usuario) {
         this.contraseña = contraseña;
-        this.usuarion = usuarion;
+        this.usuario = usuario;
     }
 
     public int getContraseña() {
         return contraseña;
     }
 
-    public void setContraseña(int contraseña) {
-        this.contraseña = contraseña;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public String getUsuarion() {
-        return usuarion;
-    }
-
-    public void setUsuarion(String usuarion) {
-        this.usuarion = usuarion;
-    }
 }
