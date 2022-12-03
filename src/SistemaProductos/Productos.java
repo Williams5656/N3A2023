@@ -129,6 +129,11 @@ public class Productos extends javax.swing.JInternalFrame {
         });
 
         btn_eliminar.setText("ELIMINAR");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
 
         id_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,6 +319,17 @@ public class Productos extends javax.swing.JInternalFrame {
        
    
     }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        modelo.setRowCount(0);
+        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE ELIMINAR?");
+        if (variable==0){
+        int selec = tabla.getSelectedRow();
+        lista.remove(selec);
+        limpiar();
+        actualizar();
+        }
+    }//GEN-LAST:event_btn_eliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
