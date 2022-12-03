@@ -25,6 +25,11 @@ public class Escritorio extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
+
+        ImageIcon imagen = new ImageIcon("src/SistemaProductos/IMAGENES/imagen panel.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(lblTotal.getWidth(), lblTotal.getHeight(), Image.SCALE_DEFAULT));
+        lblTotal.setIcon(icono);
+        this.repaint();
     }
 
     /**
@@ -37,6 +42,7 @@ public class Escritorio extends javax.swing.JFrame {
     private void initComponents() {
 
         panelMenu = new javax.swing.JDesktopPane();
+        lblTotal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -55,16 +61,8 @@ public class Escritorio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 783, Short.MAX_VALUE)
-        );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
-        );
+        panelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelMenu.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 510));
 
         jMenu1.setText("USUARIOS");
 
@@ -174,15 +172,15 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-         Personas personas = new Personas();
+        Personas personas = new Personas();
         panelMenu.add(personas);
         Dimension destopSize = panelMenu.getSize();
         Dimension FrameSize = personas.getSize();
         personas.setLocation(
                 (destopSize.width - FrameSize.width) / 2,
                 (destopSize.height - FrameSize.height) / 2);
-       personas.show();
-       personas.setVisible(true);
+        personas.show();
+        personas.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -198,16 +196,16 @@ public class Escritorio extends javax.swing.JFrame {
         productos.setLocation(
                 (destopSize.width - FrameSize.width) / 2,
                 (destopSize.height - FrameSize.height) / 2);
-       productos.show();
-       productos.setVisible(true);
+        productos.show();
+        productos.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-  dispose();
+        dispose();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
@@ -261,6 +259,7 @@ public class Escritorio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JDesktopPane panelMenu;
     // End of variables declaration//GEN-END:variables
 }
