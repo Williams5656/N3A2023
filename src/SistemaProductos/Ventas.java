@@ -82,9 +82,8 @@ public class Ventas extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tbl);
 
-        jLabel5.setBackground(new java.awt.Color(179, 219, 245));
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(179, 219, 245));
         jLabel5.setText("VENTAS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
