@@ -26,8 +26,8 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        TxtUsuario = new javax.swing.JTextField();
+        TxtPassword = new javax.swing.JTextField();
         Salir = new javax.swing.JLabel();
         BtnGuardar = new javax.swing.JButton();
 
@@ -38,18 +38,19 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(19, 29, 39));
 
-        jTextField1.setBackground(new java.awt.Color(19, 29, 39));
-        jTextField1.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "USUARIO", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("AppleGothic", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
-        jTextField1.setOpaque(true);
+        TxtUsuario.setBackground(new java.awt.Color(19, 29, 39));
+        TxtUsuario.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
+        TxtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        TxtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "USUARIO", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("AppleGothic", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        TxtUsuario.setOpaque(true);
 
-        jTextField2.setBackground(new java.awt.Color(19, 29, 39));
-        jTextField2.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "CONTRASEÑA", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("AppleGothic", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
-        jTextField2.setOpaque(true);
+        TxtPassword.setBackground(new java.awt.Color(19, 29, 39));
+        TxtPassword.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
+        TxtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        TxtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "CONTRASEÑA", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("AppleGothic", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        TxtPassword.setOpaque(true);
 
         Salir.setBackground(new java.awt.Color(19, 29, 39));
         Salir.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
@@ -91,8 +92,8 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TxtUsuario)
+                        .addComponent(TxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(BtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,9 +105,9 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(BtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -168,8 +169,8 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JLabel Salir;
+    private javax.swing.JTextField TxtPassword;
+    private javax.swing.JTextField TxtUsuario;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
