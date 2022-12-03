@@ -1,6 +1,9 @@
 package interfaz;
 
+import SistemaProductos.Escritorio;
 import java.awt.Color;
+import SistemaProductos.usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,6 +14,8 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
+    
+    
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -81,6 +86,11 @@ public class Login extends javax.swing.JFrame {
         BtnLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         BtnLogin.setBorderPainted(false);
         BtnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,6 +143,18 @@ public class Login extends javax.swing.JFrame {
     private void SalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalirMouseExited
         Salir.setBackground(new java.awt.Color(19,29,39));
     }//GEN-LAST:event_SalirMouseExited
+
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        usuario us = new usuario(12345,"admin");
+        Escritorio desktop = new Escritorio();
+        
+        if (TxtUsuario.getText().equals(us.getUsuario()) || TxtPassword.getText().equals(us.getContraseña())) {
+            desktop.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null,"USUARIO INCORRECTO");
+        }
+    }//GEN-LAST:event_BtnLoginActionPerformed
 
     /**
      * @param args the command line arguments
