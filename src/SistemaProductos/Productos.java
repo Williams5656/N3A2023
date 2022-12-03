@@ -37,11 +37,12 @@ public class Productos extends javax.swing.JInternalFrame {
         
         modelo.setRowCount(0);
         for(int i=0; i< lista.size(); i++){
-          Object[] fila = new Object[6];
+          Object[] fila = new Object[7];
           fila[0] = lista.get(i).getCodigo();
           fila[1] = lista.get(i).getNombre();
           fila[2] = lista.get(i).getTipo();
           fila[3] = lista.get(i).getProveedor();
+          fila[7] =lista.get(i).getCalidad();
           fila[4] = lista.get(i).getPrecio();
           modelo.addRow(fila);
           
