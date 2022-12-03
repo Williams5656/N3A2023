@@ -29,7 +29,7 @@ public class Login extends javax.swing.JFrame {
         TxtUsuario = new javax.swing.JTextField();
         TxtPassword = new javax.swing.JTextField();
         Salir = new javax.swing.JLabel();
-        BtnGuardar = new javax.swing.JButton();
+        BtnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -72,14 +72,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        BtnGuardar.setBackground(new java.awt.Color(19, 29, 39));
-        BtnGuardar.setFont(new java.awt.Font("Avenir Next", 0, 18)); // NOI18N
-        BtnGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnGuardar.setText("GUARDAR");
-        BtnGuardar.setActionCommand("");
-        BtnGuardar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
-        BtnGuardar.setBorderPainted(false);
-        BtnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnLogin.setBackground(new java.awt.Color(19, 29, 39));
+        BtnLogin.setFont(new java.awt.Font("Avenir Next", 0, 18)); // NOI18N
+        BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        BtnLogin.setText("INICIAR SESION");
+        BtnLogin.setActionCommand("");
+        BtnLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
+        BtnLogin.setBorderPainted(false);
+        BtnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(TxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(BtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(64, 64, 64))
         );
@@ -109,7 +109,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(TxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(BtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
@@ -167,7 +167,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnLogin;
     private javax.swing.JLabel Salir;
     private javax.swing.JTextField TxtPassword;
     private javax.swing.JTextField TxtUsuario;
