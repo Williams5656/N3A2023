@@ -207,6 +207,7 @@ public class Personas extends javax.swing.JInternalFrame {
             }
         });
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnlimpiar;
