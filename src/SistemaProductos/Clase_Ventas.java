@@ -2,14 +2,14 @@
 package SistemaProductos;
 
 
-public class Ventas {
+public class Clase_Ventas {
     
     int codigo_producto;
     int cantidad;
     double precio_unitario;
     double precio_total;
 
-    public Ventas(int codigo_producto, int cantidad, double precio_unitario, double precio_total) {
+    public Clase_Ventas(int codigo_producto, int cantidad, double precio_unitario, double precio_total) {
         this.codigo_producto = codigo_producto;
         this.cantidad = cantidad;
         this.precio_unitario = precio_unitario;
@@ -47,6 +47,7 @@ public class Ventas {
     public void setPrecio_total(double precio_total) {
         this.precio_total = precio_total;
     }
+    
     
     
 }
