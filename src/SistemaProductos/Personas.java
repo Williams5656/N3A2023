@@ -88,7 +88,7 @@ public class Personas extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, 50));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, 50));
 
         jLabel8.setText("Direccion:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
@@ -128,6 +128,8 @@ public class Personas extends javax.swing.JInternalFrame {
         txtcedula.setText(null);
         txtdireccion.setText(null);
         txttelefono.setText(null);
+        
+        
     }
 
 
