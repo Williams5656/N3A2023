@@ -1,4 +1,4 @@
-package interfaz;
+package SistemaProductos;
 
 import SistemaProductos.Escritorio;
 import java.awt.Color;

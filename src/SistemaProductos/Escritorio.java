@@ -230,21 +230,22 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-//        login rojo = new login();
-//       rojo.setVisible(true);
-//       this.setVisible(false);
+       Login rojo = new Login();
+      rojo.setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-           Ventas ventas = new Ventas();
-        panelMenu.add(ventas);
+Ventas usuario = new Ventas();
+        panelMenu.add(usuario);
         Dimension destopSize = panelMenu.getSize();
-        Dimension FrameSize = ventas.getSize();
-        ventas.setLocation(
+        Dimension FrameSize = usuario.getSize();
+        usuario.setLocation(
                 (destopSize.width - FrameSize.width) / 2,
                 (destopSize.height - FrameSize.height) / 2);
-        ventas.show();
-        ventas.setVisible(true);
+        usuario.show();
+        usuario.setVisible(true);      
+        
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
