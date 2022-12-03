@@ -2,34 +2,12 @@
 package SistemaProductos;
 
 public class usuario {
-    int codigo;
-    int cedula;
-    int contraseña;
-    String nombre;
-    String usuarion;
+    int contraseña=1234;
+    String usuarion="admin";
 
-    public usuario(int codigo, int cedula, int contraseña, String nombre, String usuarion) {
-        this.codigo = codigo;
-        this.cedula = cedula;
+    public usuario(int contraseña, String usuarion) {
         this.contraseña = contraseña;
-        this.nombre = nombre;
         this.usuarion = usuarion;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public int getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
     }
 
     public int getContraseña() {
@@ -40,19 +18,11 @@ public class usuario {
         this.contraseña = contraseña;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getUssuarion() {
+    public String getUsuarion() {
         return usuarion;
     }
 
-    public void setUssuarion(String usuarion) {
+    public void setUsuarion(String usuarion) {
         this.usuarion = usuarion;
     }
 }
