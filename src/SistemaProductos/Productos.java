@@ -5,17 +5,50 @@
  */
 package SistemaProductos;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP GAMER
  */
 public class Productos extends javax.swing.JInternalFrame {
-
+    public static ArrayList<Productos_class> lista = new ArrayList(); //para almacenar las columnas
+    private DefaultTableModel modelo; //
     /**
      * Creates new form Productos
      */
     public Productos() {
         initComponents();
+        id_codigo.setEditable(false);//evita editar el codigo
+        id_codigo.setText(lista.size()+1+"");
+        modelo = new DefaultTableModel(){
+            public boolean celdastabla( int fila, int columna){
+                return columna == 6;
+                
+            }
+        };
+        modelo.addColumn("CODIGO");
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("TIPO");
+        modelo.addColumn("PROVEEDOR");
+        modelo.addColumn("CALIDAD");
+        modelo.addColumn("PRECIO");
+        
+        modelo.setRowCount(0);
+        for(int i=0; i< lista.size(); i++){
+          Object[] fila = new Object[7];
+          fila[0] = lista.get(i).getCodigo();
+          fila[1] = lista.get(i).getNombre();
+          fila[2] = lista.get(i).getTipo();
+          fila[3] = lista.get(i).getProveedor();
+          fila[7] =lista.get(i).getCalidad();
+          fila[4] = lista.get(i).getPrecio();
+          modelo.addRow(fila);
+          
+        }
+        
+        tabla.setModel(modelo);
     }
 
     /**
@@ -94,6 +127,11 @@ public class Productos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablaMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
 
         btn_limpiar.setText("LIMPIAR");
@@ -206,6 +244,17 @@ public class Productos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void tablaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMousePressed
+        int selec = tabla.getSelectedRow();
+        id_codigo.setText(lista.get(selec).getCodigo()+"");
+        id_nombre.setText(lista.get(selec).getNombre());
+        txt_tipo.setText(lista.get(selec).getTipo());     
+        id_proveedor.setText(lista.get(selec).getProveedor());
+        id_calidad.setText(lista.get(selec).getCalidad());
+        id_precio.setText(lista.get(selec).getPrecio()+"");
+        
+    }//GEN-LAST:event_tablaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
