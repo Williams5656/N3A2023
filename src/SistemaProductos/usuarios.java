@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import SistemaProductos.lista_usuario;
+import SistemaProductos.usuarioMB;
+import static SistemaProductos.lista_usuario.modelo;
 
 /**
  *
@@ -16,22 +18,26 @@ import SistemaProductos.lista_usuario;
  */
 public class usuarios extends javax.swing.JInternalFrame {
 
-    public static ArrayList<usuario> lista = new ArrayList();
+    public static ArrayList<usuarioMB> lista = new ArrayList();
 
     public usuarios() {
         initComponents();
+    
     }
-     public void actualizar() {
-        DefaultTableModel modelo = new DefaultTableModel();
+    
+   
+    public void actualizar() {
 
         modelo.setRowCount(0);
         
         for (int i = 0; i < lista.size(); i++) {
             
-        Object[] fila = new Object[3];
+        Object[] fila = new Object[5];
         fila[0] = lista.get(i).getCodigo();
-        fila[1] = lista.get(i).getUsuario();
-        fila[2] = lista.get(i).getCedula();
+        fila[0] = lista.get(i).getNombre();
+        fila[0] = lista.get(i).getCedula();
+        fila[0] = lista.get(i).getUsuario();
+        fila[0] = lista.get(i).getContraseña();
         modelo.addRow(fila);
         }
     }
@@ -53,7 +59,7 @@ public class usuarios extends javax.swing.JInternalFrame {
         texcodigo = new javax.swing.JTextField();
         texcontra = new javax.swing.JTextField();
         texcedula = new javax.swing.JTextField();
-        texnombre = new javax.swing.JTextField();
+        texusu = new javax.swing.JTextField();
         guardar = new javax.swing.JButton();
         salir = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
@@ -68,12 +74,14 @@ public class usuarios extends javax.swing.JInternalFrame {
         texnombre1 = new javax.swing.JTextField();
         guardar1 = new javax.swing.JButton();
         salir1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        texnombre = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("INGRESAR USUARIO");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("NOMBRE");
+        jLabel2.setText("USUARIO");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("CODIGO");
@@ -93,7 +101,7 @@ public class usuarios extends javax.swing.JInternalFrame {
         });
 
         salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        salir.setText("SALIR");
+        salir.setText("REGRESAR");
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
@@ -190,6 +198,9 @@ public class usuarios extends javax.swing.JInternalFrame {
                 .addGap(76, 76, 76))
         );
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("NOMBRE");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,27 +210,28 @@ public class usuarios extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(guardar)
-                                .addGap(81, 81, 81)
-                                .addComponent(salir))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(texcontra, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(texcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(texcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(texcontra, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(texusu, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(131, 131, 131)
                         .addComponent(jLabel1)))
                 .addContainerGap(64, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(guardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(salir)
+                .addGap(82, 82, 82))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -231,14 +243,18 @@ public class usuarios extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(60, 60, 60)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(texcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(texusu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -247,11 +263,11 @@ public class usuarios extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
                     .addComponent(salir))
-                .addGap(76, 76, 76))
+                .addGap(42, 42, 42))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -267,7 +283,7 @@ public class usuarios extends javax.swing.JInternalFrame {
         int variable = JOptionPane.showConfirmDialog(null, "Estas seguro de guardad");
         if (variable == 0) {
             if (!texcodigo.getText().isEmpty()) {
-                usuario usu = new usuario(Integer.parseInt(texcodigo.getText()), texcedula.getText(), Integer.parseInt(texcontra.getText()), texnombre.getText());
+                usuarioMB usu=new usuarioMB(Integer.parseInt(texcodigo.getText()),texnombre.getText(),texusu.getText(),Integer.parseInt(texcontra.getText()),Integer.parseInt(texcedula.getText()));
                 lista.add(usu);
             } else {
                 JOptionPane.showMessageDialog(null, "Llenar todos los campos");
@@ -287,7 +303,7 @@ public class usuarios extends javax.swing.JInternalFrame {
     private void salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salir1ActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guardar;
@@ -295,6 +311,7 @@ public class usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -313,5 +330,6 @@ public class usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField texcontra1;
     private javax.swing.JTextField texnombre;
     private javax.swing.JTextField texnombre1;
+    private javax.swing.JTextField texusu;
     // End of variables declaration//GEN-END:variables
 }

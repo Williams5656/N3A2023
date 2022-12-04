@@ -6,7 +6,8 @@
 package SistemaProductos;
 
 import javax.swing.table.DefaultTableModel;
-import SistemaProductos.usuario;
+import SistemaProductos.usuarioMB;
+import static SistemaProductos.usuarios.lista;
 import java.util.ArrayList;
 
 /**
@@ -14,33 +15,35 @@ import java.util.ArrayList;
  * @author santi
  */
 public class lista_usuario extends javax.swing.JInternalFrame {
-    private DefaultTableModel modelo;
+    public static DefaultTableModel modelo;
     /**
      * Creates new form lista_usuario
      */
     public lista_usuario() {
-        ArrayList<usuario> lista = new ArrayList();
         initComponents();
         modelo = new DefaultTableModel() {
             public boolean celda(int fila, int columna) {
-                return columna == 3;
+                return columna == 5;
             }
         };
         modelo.addColumn("CODIGO");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("CEDULA");
+        modelo.addColumn("USUARIO");
+        modelo.addColumn("PASSWORK");
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
 
-            Object[] fila = new Object[3];
+            Object[] fila = new Object[5];
             fila[0] = lista.get(i).getCodigo();
-            fila[1] = lista.get(i).getUsuario();
-            fila[2] = lista.get(i).getCedula();
+            fila[0] = lista.get(i).getCodigo();
+            fila[0] = lista.get(i).getCodigo();
+            fila[0] = lista.get(i).getCodigo();
+            fila[0] = lista.get(i).getCodigo();
             modelo.addRow(fila);
         }
-
+        
         tabla.setModel(modelo);
-
     
     }
 
@@ -88,7 +91,6 @@ public class lista_usuario extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

@@ -185,7 +185,15 @@ public class Escritorio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+       lista_usuario usuario = new lista_usuario();
+        panelMenu.add(usuario);
+        Dimension destopSize = panelMenu.getSize();
+        Dimension FrameSize = usuario.getSize();
+        usuario.setLocation(
+                (destopSize.width - FrameSize.width) / 2,
+                (destopSize.height - FrameSize.height) / 2);
+        usuario.show();
+        usuario.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
