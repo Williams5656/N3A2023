@@ -292,6 +292,7 @@ public class usuarios extends javax.swing.JInternalFrame {
         if (variable == 0) {
             if (!texcodigo.getText().isEmpty()) {
                 usuarioMB usu=new usuarioMB(Integer.parseInt(texcodigo.getText()),texnombre.getText(),texusu.getText(),Integer.parseInt(texcontra.getText()),Integer.parseInt(texcedula.getText()));
+                JOptionPane.showMessageDialog(null, "Datos ingresados");
                 actualizar();
                 limpiar();
                 lista.add(usu);
