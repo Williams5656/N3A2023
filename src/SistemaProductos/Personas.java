@@ -72,6 +72,7 @@ public class Personas extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablapersonas = new javax.swing.JTable();
         btnagregar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -125,6 +126,11 @@ public class Personas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablapersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablapersonasMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablapersonas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 420, 190));
@@ -136,6 +142,14 @@ public class Personas extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 50));
+
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,6 +203,31 @@ public class Personas extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnagregarActionPerformed
+
+    private void tablapersonasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapersonasMousePressed
+        // TODO add your handling code here:
+         //Evento de la tabla para actualizar,lleno mis campos seleccionada
+        int select=tablapersonas.getSelectedRow();
+        txtnombre.setText(list.get(select).getNombre()+"");
+        txtapellido.setText(list.get(select).getApellido());
+        txtedad.setText(list.get(select).getEdad()+"");
+        txtcedula.setText(list.get(select).getCedula());
+        txtdireccion.setText(list.get(select).getDireccion());
+        txttelefono.setText(list.get(select).getTelefono());
+    }//GEN-LAST:event_tablapersonasMousePressed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        int select=tablapersonas.getSelectedRow();
+         list.get(select).setNombre(txtnombre.getText());
+         list.get(select).setApellido(txtapellido.getText());
+         list.get(select).setEdad(Integer.parseInt(txtedad.getText()));
+         list.get(select).setCedula(txtcedula.getText());
+         list.get(select).setDireccion(txtdireccion.getText());
+         list.get(select).setTelefono(txttelefono.getText());
+         limpiar();
+         actualizar();
+    }//GEN-LAST:event_btnEditarActionPerformed
     private void limpiar(){
         txtnombre.setText(null);
         txtapellido.setText(null);
@@ -209,6 +248,7 @@ public class Personas extends javax.swing.JInternalFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JLabel jLabel1;
