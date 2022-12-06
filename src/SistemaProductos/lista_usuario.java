@@ -23,7 +23,7 @@ public class lista_usuario extends javax.swing.JInternalFrame {
         initComponents();
         modelo = new DefaultTableModel() {
             public boolean celda(int fila, int columna) {
-                return columna == 5;
+                return columna == 4;
             }
         };
         modelo.addColumn("CODIGO");
@@ -35,9 +35,9 @@ public class lista_usuario extends javax.swing.JInternalFrame {
 
             Object[] fila = new Object[4];
             fila[0] = lista.get(i).getCodigo();
-            fila[0] = lista.get(i).getNombre();
-            fila[0] = lista.get(i).getCedula();
-            fila[0] = lista.get(i).getUsuario();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getCedula();
+            fila[3] = lista.get(i).getUsuario();
             
             modelo.addRow(fila);
         }

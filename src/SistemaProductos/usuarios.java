@@ -34,10 +34,10 @@ public class usuarios extends javax.swing.JInternalFrame {
             
         Object[] fila = new Object[5];
         fila[0] = lista.get(i).getCodigo();
-        fila[0] = lista.get(i).getNombre();
-        fila[0] = lista.get(i).getCedula();
-        fila[0] = lista.get(i).getUsuario();
-        fila[0] = lista.get(i).getContraseña();
+        fila[1] = lista.get(i).getNombre();
+        fila[2] = lista.get(i).getCedula();
+        fila[3] = lista.get(i).getUsuario();
+        fila[4] = lista.get(i).getContraseña();
         modelo.addRow(fila);
         }
     }
