@@ -64,6 +64,8 @@ public class Ventas extends javax.swing.JInternalFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
