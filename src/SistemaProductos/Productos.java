@@ -301,7 +301,7 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablaMousePressed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-       System.exit(WIDTH);
+       this.dispose();
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
