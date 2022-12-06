@@ -41,6 +41,15 @@ public class usuarios extends javax.swing.JInternalFrame {
         modelo.addRow(fila);
         }
     }
+    public void limpiar(){
+    
+        texcodigo.setText("");
+        texcedula.setText("");
+        texcontra.setText("");
+        texnombre.setText("");
+        texusu.setText("");
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -283,7 +292,9 @@ public class usuarios extends javax.swing.JInternalFrame {
         if (variable == 0) {
             if (!texcodigo.getText().isEmpty()) {
                 usuarioMB usu=new usuarioMB(Integer.parseInt(texcodigo.getText()),texnombre.getText(),texusu.getText(),Integer.parseInt(texcontra.getText()),Integer.parseInt(texcedula.getText()));
-                 JOptionPane.showMessageDialog(null, "Datos Ingresados");
+                JOptionPane.showMessageDialog(null, "Datos ingresados");
+                actualizar();
+                limpiar();
                 lista.add(usu);
             } else {
                 JOptionPane.showMessageDialog(null, "Llenar todos los campos");
