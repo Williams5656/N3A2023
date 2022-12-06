@@ -76,6 +76,8 @@ public class Personas extends javax.swing.JInternalFrame {
 
         jLabel1.setText("jLabel1");
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
