@@ -7,11 +7,12 @@ public class usuarioMB {
     int codigo;
     String nombre;
     String usuario;
-    int contraseña;
+    String contraseña;
     int cedula;
     public usuarioMB(){
     }
-    public usuarioMB(int codigo, String nombre, String usuario, int contraseña, int cedula) {
+
+    public usuarioMB(int codigo, String nombre, String usuario, String contraseña, int cedula) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.usuario = usuario;
@@ -43,11 +44,11 @@ public class usuarioMB {
         this.usuario = usuario;
     }
 
-    public int getContraseña() {
+    public String getContraseña() {
         return contraseña;
     }
 
-    public void setContraseña(int contraseña) {
+    public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
 

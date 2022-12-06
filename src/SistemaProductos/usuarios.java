@@ -291,7 +291,7 @@ public class usuarios extends javax.swing.JInternalFrame {
         int variable = JOptionPane.showConfirmDialog(null, "Estas seguro de guardad");
         if (variable == 0) {
             if (!texcodigo.getText().isEmpty()) {
-                usuarioMB usu=new usuarioMB(Integer.parseInt(texcodigo.getText()),texnombre.getText(),texusu.getText(),Integer.parseInt(texcontra.getText()),Integer.parseInt(texcedula.getText()));
+                usuarioMB usu=new usuarioMB(Integer.parseInt(texcodigo.getText()),texnombre.getText(),texusu.getText(),texcontra.getText(),Integer.parseInt(texcedula.getText()));
                 JOptionPane.showMessageDialog(null, "Datos ingresados");
                 actualizar();
                 limpiar();
