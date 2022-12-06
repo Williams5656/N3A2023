@@ -28,7 +28,7 @@ public class Escritorio extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
 
-        ImageIcon imagen = new ImageIcon("src/SistemaProductos/IMAGENES/imagen panel.jpg");
+        ImageIcon imagen = new ImageIcon("src/SistemaProductos/IMAGENES/fondomenu.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(lblTotal.getWidth(), lblTotal.getHeight(), Image.SCALE_DEFAULT));
         lblTotal.setIcon(icono);
         this.repaint();
@@ -77,10 +77,17 @@ public class Escritorio extends javax.swing.JFrame {
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
 
+        jMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu1.setText("USUARIOS");
+        jMenu1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem1.setText("NUEVO");
@@ -102,7 +109,9 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu2.setText("PERSONAS");
+        jMenu2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem3.setText("NUEVO");
@@ -115,11 +124,18 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/LISTA.png"))); // NOI18N
         jMenuItem4.setText("LISTA");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu3.setText("PRODUCTOS");
+        jMenu3.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem5.setText("NUEVO");
@@ -136,7 +152,9 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu4.setText("VENTAS");
+        jMenu4.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
         jMenuItem7.setText("NUEVO");
@@ -158,8 +176,10 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu5.setForeground(new java.awt.Color(255, 0, 0));
         jMenu5.setText("SALIR");
+        jMenu5.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/EXIT.png"))); // NOI18N
         jMenuItem9.setText("SALIR");
@@ -261,6 +281,14 @@ Ventas usuario = new Ventas();
         usuario.setVisible(true);      
         
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+     
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+       
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
