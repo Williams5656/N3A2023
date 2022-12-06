@@ -1,6 +1,4 @@
-
 package SistemaProductos;
-
 
 public class Clase_Ventas {
     
@@ -46,8 +44,5 @@ public class Clase_Ventas {
 
     public void setPrecio_total(double precio_total) {
         this.precio_total = precio_total;
-    }
-    
-    
-    
+    }   
 }
