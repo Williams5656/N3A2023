@@ -8,6 +8,7 @@ package SistemaProductos;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import SistemaProductos.Lista_productos;
 
 /**
  *
@@ -186,43 +187,45 @@ public class Productos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tipo)
-                            .addComponent(codigo)
-                            .addComponent(nombre)
-                            .addComponent(calidad)
-                            .addComponent(precio)
-                            .addComponent(proveedor))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(id_nombre)
-                            .addComponent(id_codigo)
-                            .addComponent(id_calidad)
-                            .addComponent(id_precio)
-                            .addComponent(id_proveedor)
-                            .addComponent(txt_tipo, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(305, 305, 305)
-                        .addComponent(productos)))
+                        .addComponent(productos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tipo)
+                                    .addComponent(codigo)
+                                    .addComponent(nombre)
+                                    .addComponent(calidad)
+                                    .addComponent(precio)
+                                    .addComponent(proveedor))
+                                .addGap(51, 51, 51))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btn_guardar)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(id_nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(id_codigo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(id_calidad, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(id_precio, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(id_proveedor, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_tipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                                .addGap(52, 52, 52)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_editar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_eliminar)
+                                .addGap(30, 30, 30)
+                                .addComponent(btn_limpiar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addComponent(btn_salir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_salir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(btn_guardar)
-                        .addGap(120, 120, 120)
-                        .addComponent(btn_editar)
-                        .addGap(112, 112, 112)
-                        .addComponent(btn_eliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                        .addComponent(btn_limpiar)))
-                .addGap(78, 78, 78))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,19 +259,15 @@ public class Productos extends javax.swing.JInternalFrame {
                             .addComponent(id_proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(proveedor)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_guardar)
-                        .addGap(97, 97, 97))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_eliminar)
-                            .addComponent(btn_editar)
-                            .addComponent(btn_limpiar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_salir)
-                        .addGap(31, 31, 31))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_editar)
+                    .addComponent(btn_guardar)
+                    .addComponent(btn_eliminar)
+                    .addComponent(btn_limpiar))
+                .addGap(18, 18, 18)
+                .addComponent(btn_salir)
+                .addGap(54, 54, 54))
         );
 
         pack();
@@ -280,6 +279,8 @@ public class Productos extends javax.swing.JInternalFrame {
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
         modelo.setRowCount(0);
+        Lista_productos list=new Lista_productos();
+        
 
         if (id_codigo.getText().isEmpty() || id_nombre.getText().isEmpty() || id_precio.getText().isEmpty() || txt_tipo.getText().isEmpty() || id_proveedor.getText().isEmpty()) { //aumentar el  && para completar los dem[as campos
             JOptionPane.showMessageDialog(null, "No dejar campos vacios");
@@ -326,13 +327,8 @@ public class Productos extends javax.swing.JInternalFrame {
     }
 
     public void limpiar() {
-        for (int i = 0; i < lista.size(); i++) {
-            int a = lista.size() + 1;
-            if (lista.get(i).getCodigo() == a) {
-                id_codigo.setText(lista.size() + 234 + "");
-            }
-        }
-        id_codigo.setText(lista.size() + 1 + "");
+       
+        id_codigo.setText(" ");
         id_nombre.setText("");
         txt_tipo.setText("");
         id_proveedor.setText("");
