@@ -158,7 +158,7 @@ public class Login extends javax.swing.JFrame {
 
         Escritorio desktop = new Escritorio(); //objeto de la clase escritorio
 
-        if (TxtUsuario.getText().isEmpty() || pass.isBlank()) { // Sentencia si hay espacios vacios muestra mensaje en pantalla.
+        if (TxtUsuario.getText().isEmpty() || pass.isEmpty()) { // Sentencia si hay espacios vacios muestra mensaje en pantalla.
             UsuarioIncorrecto.setVisible(true); // Var si cumple, muestra mensaje en pantalla.
         } else if (TxtUsuario.getText().equals(usuario) &&pass.equals(contraseña)) { //Sentencia si el usuario y contraseña son correctos.
             desktop.setVisible(true); //objeto si cumple la condicion, muestra el panel del escritorio.
