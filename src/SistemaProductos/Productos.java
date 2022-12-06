@@ -14,19 +14,21 @@ import javax.swing.table.DefaultTableModel;
  * @author HP GAMER
  */
 public class Productos extends javax.swing.JInternalFrame {
+
     public static ArrayList<Productos_class> lista = new ArrayList(); //para almacenar las columnas
     private DefaultTableModel modelo; //
+
     /**
      * Creates new form Productos
      */
     public Productos() {
         initComponents();
         id_codigo.setEditable(false);//evita editar el codigo
-        id_codigo.setText(lista.size()+1+"");
-        modelo = new DefaultTableModel(){
-            public boolean celdastabla( int fila, int columna){
+        id_codigo.setText(lista.size() + 1 + "");
+        modelo = new DefaultTableModel() {
+            public boolean celdastabla(int fila, int columna) {
                 return columna == 6;
-                
+
             }
         };
         modelo.addColumn("CODIGO");
@@ -35,34 +37,35 @@ public class Productos extends javax.swing.JInternalFrame {
         modelo.addColumn("PROVEEDOR");
         modelo.addColumn("CALIDAD");
         modelo.addColumn("PRECIO");
-        
+
         modelo.setRowCount(0);
-        for(int i=0; i< lista.size(); i++){
-          Object[] fila = new Object[7];
-          fila[0] = lista.get(i).getCodigo();
-          fila[1] = lista.get(i).getNombre();
-          fila[2] = lista.get(i).getTipo();
-          fila[3] = lista.get(i).getProveedor();
-          fila[7] =lista.get(i).getCalidad();
-          fila[4] = lista.get(i).getPrecio();
-          modelo.addRow(fila);
-          
+        for (int i = 0; i < lista.size(); i++) {
+            Object[] fila = new Object[7];
+            fila[0] = lista.get(i).getCodigo();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getTipo();
+            fila[3] = lista.get(i).getProveedor();
+            fila[7] = lista.get(i).getCalidad();
+            fila[4] = lista.get(i).getPrecio();
+            modelo.addRow(fila);
+
         }
-        
+
         tabla.setModel(modelo);
     }
-     public void actualizar(){
+
+    public void actualizar() {
         modelo.setRowCount(0);
-        for(int i=0; i< lista.size(); i++){
-          Object[] fila = new Object[7];
-          fila[0] = lista.get(i).getCodigo();
-          fila[1] = lista.get(i).getNombre();
-          fila[2] = lista.get(i).getTipo();
-          fila[3] = lista.get(i).getProveedor();
-          fila[4] =lista.get(i).getCalidad();
-          fila[5] = lista.get(i).getPrecio();
-          modelo.addRow(fila);
-          
+        for (int i = 0; i < lista.size(); i++) {
+            Object[] fila = new Object[7];
+            fila[0] = lista.get(i).getCodigo();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getTipo();
+            fila[3] = lista.get(i).getProveedor();
+            fila[4] = lista.get(i).getCalidad();
+            fila[5] = lista.get(i).getPrecio();
+            modelo.addRow(fila);
+
         }
     }
 
@@ -277,36 +280,40 @@ public class Productos extends javax.swing.JInternalFrame {
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
         modelo.setRowCount(0);
-        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE GUARDAR?"); 
-        if (!id_codigo.getText().isEmpty() && !id_nombre.getText().isEmpty() && !id_precio.getText().isEmpty() && !txt_tipo.getText().isEmpty() && !id_proveedor.getText().isEmpty()){ //aumentar el  && para completar los dem[as campos
-           Productos_class producto= new Productos_class(Integer.parseInt(id_codigo.getText()), txt_tipo.getText(),id_nombre.getText(), id_proveedor.getText(), id_calidad.getText(), Double.valueOf(id_precio.getText()));
-           lista.add(producto);
-           limpiar();
-           actualizar();
-           
-        }else {
+
+        if (id_codigo.getText().isEmpty() || id_nombre.getText().isEmpty() || id_precio.getText().isEmpty() || txt_tipo.getText().isEmpty() || id_proveedor.getText().isEmpty()) { //aumentar el  && para completar los dem[as campos
             JOptionPane.showMessageDialog(null, "No dejar campos vacios");
+
+        } else {
+            int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE GUARDAR?","",2);
+            if (variable == 0) {
+                Productos_class producto = new Productos_class(Integer.parseInt(id_codigo.getText()), txt_tipo.getText(), id_nombre.getText(), id_proveedor.getText(), id_calidad.getText(), Double.valueOf(id_precio.getText()));
+                lista.add(producto);
+                
+                limpiar();
+                actualizar();
+            }
         }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void tablaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMousePressed
         int selec = tabla.getSelectedRow();
-        id_codigo.setText(lista.get(selec).getCodigo()+"");
+        id_codigo.setText(lista.get(selec).getCodigo() + "");
         id_nombre.setText(lista.get(selec).getNombre());
-        txt_tipo.setText(lista.get(selec).getTipo());     
+        txt_tipo.setText(lista.get(selec).getTipo());
         id_proveedor.setText(lista.get(selec).getProveedor());
         id_calidad.setText(lista.get(selec).getCalidad());
-        id_precio.setText(lista.get(selec).getPrecio()+"");
-        
+        id_precio.setText(lista.get(selec).getPrecio() + "");
+
     }//GEN-LAST:event_tablaMousePressed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
         modelo.setRowCount(0);
-        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE MODIFICAR?"); 
+        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE MODIFICAR?");
         int selec = tabla.getSelectedRow();
         lista.get(selec).setNombre(id_nombre.getText());
         lista.get(selec).setTipo(txt_tipo.getText());
@@ -315,33 +322,34 @@ public class Productos extends javax.swing.JInternalFrame {
         lista.get(selec).setPrecio(Double.valueOf(id_precio.getText()));
         limpiar();
         actualizar();
-       
-    }                                             
-   public void limpiar(){
-       for(int i=0;i<lista.size();i++){
-           int a = lista.size()+1;
-           if(lista.get(i).getCodigo()==a){
-             id_codigo.setText(lista.size()+234+"");  
-           }
-       }
-       id_codigo.setText(lista.size()+1+"");
-       id_nombre.setText("");
-       txt_tipo.setText("");
-       id_proveedor.setText("");
-       id_calidad.setText("");
-       id_precio.setText("");
-       
-   
+
+    }
+
+    public void limpiar() {
+        for (int i = 0; i < lista.size(); i++) {
+            int a = lista.size() + 1;
+            if (lista.get(i).getCodigo() == a) {
+                id_codigo.setText(lista.size() + 234 + "");
+            }
+        }
+        id_codigo.setText(lista.size() + 1 + "");
+        id_nombre.setText("");
+        txt_tipo.setText("");
+        id_proveedor.setText("");
+        id_calidad.setText("");
+        id_precio.setText("");
+
+
     }//GEN-LAST:event_btn_editarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
         modelo.setRowCount(0);
         int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE ELIMINAR?");
-        if (variable==0){
-        int selec = tabla.getSelectedRow();
-        lista.remove(selec);
-        limpiar();
-        actualizar();
+        if (variable == 0) {
+            int selec = tabla.getSelectedRow();
+            lista.remove(selec);
+            limpiar();
+            actualizar();
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
