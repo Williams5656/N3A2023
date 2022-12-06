@@ -30,6 +30,7 @@ public class lista_usuario extends javax.swing.JInternalFrame {
         modelo.addColumn("NOMBRE");
         modelo.addColumn("CEDULA");
         modelo.addColumn("USUARIO");
+        modelo.addColumn("PASSWORK");
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
 
@@ -38,6 +39,7 @@ public class lista_usuario extends javax.swing.JInternalFrame {
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getCedula();
             fila[3] = lista.get(i).getUsuario();
+            fila[4] = lista.get(i).getContraseña();
             
             modelo.addRow(fila);
         }

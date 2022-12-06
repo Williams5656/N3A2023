@@ -76,6 +76,8 @@ public class Personas extends javax.swing.JInternalFrame {
 
         jLabel1.setText("jLabel1");
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -204,18 +206,6 @@ public class Personas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnagregarActionPerformed
 
-    private void tablapersonasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapersonasMousePressed
-        // TODO add your handling code here:
-         //Evento de la tabla para actualizar,lleno mis campos seleccionada
-        int select=tablapersonas.getSelectedRow();
-        txtnombre.setText(list.get(select).getNombre()+"");
-        txtapellido.setText(list.get(select).getApellido());
-        txtedad.setText(list.get(select).getEdad()+"");
-        txtcedula.setText(list.get(select).getCedula());
-        txtdireccion.setText(list.get(select).getDireccion());
-        txttelefono.setText(list.get(select).getTelefono());
-    }//GEN-LAST:event_tablapersonasMousePressed
-
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         int select=tablapersonas.getSelectedRow();
@@ -228,6 +218,18 @@ public class Personas extends javax.swing.JInternalFrame {
          limpiar();
          actualizar();
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void tablapersonasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapersonasMousePressed
+        // TODO add your handling code here:
+        //Evento de la tabla para actualizar,lleno mis campos seleccionada
+        int select=tablapersonas.getSelectedRow();
+        txtnombre.setText(list.get(select).getNombre()+"");
+        txtapellido.setText(list.get(select).getApellido());
+        txtedad.setText(list.get(select).getEdad()+"");
+        txtcedula.setText(list.get(select).getCedula());
+        txtdireccion.setText(list.get(select).getDireccion());
+        txttelefono.setText(list.get(select).getTelefono());
+    }//GEN-LAST:event_tablapersonasMousePressed
     private void limpiar(){
         txtnombre.setText(null);
         txtapellido.setText(null);
