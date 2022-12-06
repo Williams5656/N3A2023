@@ -141,6 +141,11 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/LISTA.png"))); // NOI18N
         jMenuItem6.setText("LISTA");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem6);
 
         jMenuBar1.add(jMenu3);
@@ -282,6 +287,18 @@ Ventas usuario = new Ventas();
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
        
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+Lista_productos productos = new Lista_productos();
+        panelMenu.add(productos);
+        Dimension destopSize = panelMenu.getSize();
+        Dimension FrameSize = productos.getSize();
+        productos.setLocation(
+                (destopSize.width - FrameSize.width) / 2,
+                (destopSize.height - FrameSize.height) / 2);
+        productos.show();
+        productos.setVisible(true);         
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
