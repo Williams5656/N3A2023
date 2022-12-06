@@ -154,7 +154,7 @@ public class Login extends javax.swing.JFrame {
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
         String usuario = "admin";
         String contraseña = "12345";
-        String pass = new String(TxtPassword.getPassword()); //variable para retornas el get password en el field.
+        String pass = new String(TxtPassword.getPassword()); //variable para retornar el get password en el field.
 
         Escritorio desktop = new Escritorio(); //objeto de la clase escritorio
 
@@ -162,7 +162,7 @@ public class Login extends javax.swing.JFrame {
             UsuarioIncorrecto.setVisible(true); // Var si cumple, muestra mensaje en pantalla.
         } else if (TxtUsuario.getText().equals(usuario) &&pass.equals(contraseña)) { //Sentencia si el usuario y contraseña son correctos.
             desktop.setVisible(true); //objeto si cumple la condicion, muestra el panel del escritorio.
-            this.dispose(); // cierra la ventana de login.
+            this.dispose(); // cierra la ventana de login.hshshshshhshsshsh
         }
 
     }//GEN-LAST:event_BtnLoginActionPerformed
