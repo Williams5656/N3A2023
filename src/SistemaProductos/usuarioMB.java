@@ -9,7 +9,8 @@ public class usuarioMB {
     String usuario;
     int contraseña;
     int cedula;
-
+    public usuarioMB(){
+    }
     public usuarioMB(int codigo, String nombre, String usuario, int contraseña, int cedula) {
         this.codigo = codigo;
         this.nombre = nombre;
