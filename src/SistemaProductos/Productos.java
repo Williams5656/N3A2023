@@ -160,6 +160,11 @@ public class Productos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tabla);
 
         btn_limpiar.setText("LIMPIAR");
+        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarActionPerformed(evt);
+            }
+        });
 
         proveedor.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         proveedor.setText("PROVEEDOR");
@@ -339,6 +344,10 @@ public class Productos extends javax.swing.JInternalFrame {
         actualizar();
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btn_limpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
