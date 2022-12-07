@@ -66,7 +66,6 @@ public class usuarios extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         texcodigo = new javax.swing.JTextField();
-        texcontra = new javax.swing.JTextField();
         texcedula = new javax.swing.JTextField();
         texusu = new javax.swing.JTextField();
         guardar = new javax.swing.JButton();
@@ -85,23 +84,36 @@ public class usuarios extends javax.swing.JInternalFrame {
         salir1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         texnombre = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        texcontra = new javax.swing.JPasswordField();
+        Ver = new javax.swing.JLabel();
+        NoVer = new javax.swing.JLabel();
 
         setClosable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("INGRESAR USUARIO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 11, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("USUARIO");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 244, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("CODIGO");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 84, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("CONTRASEÑA");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 282, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("CEDULA");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 165, -1, -1));
+        getContentPane().add(texcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 84, 208, -1));
+        getContentPane().add(texcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 165, 208, -1));
+        getContentPane().add(texusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 241, 208, -1));
 
         guardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         guardar.setText("GUARDAR");
@@ -110,6 +122,7 @@ public class usuarios extends javax.swing.JInternalFrame {
                 guardarActionPerformed(evt);
             }
         });
+        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 332, -1, -1));
 
         salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         salir.setText("REGRESAR");
@@ -118,6 +131,7 @@ public class usuarios extends javax.swing.JInternalFrame {
                 salirActionPerformed(evt);
             }
         });
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 332, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("INGRESAR USUARIO");
@@ -209,89 +223,40 @@ public class usuarios extends javax.swing.JInternalFrame {
                 .addGap(76, 76, 76))
         );
 
+        getContentPane().add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 199, 0, 0));
+
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("NOMBRE");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 127, -1, -1));
+        getContentPane().add(texnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 127, 208, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(guardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(salir)
-                .addGap(82, 82, 82))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel11))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(texcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texcontra, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texusu, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jLabel1)))
-                .addContainerGap(64, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(texcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(texusu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(texcontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardar)
-                    .addComponent(salir))
-                .addGap(42, 42, 42))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("Crear Usuario :");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 206, -1, -1));
+        getContentPane().add(texcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 282, 208, -1));
+
+        Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
+        Ver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VerMouseClicked(evt);
+            }
+        });
+        getContentPane().add(Ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, 30));
+
+        NoVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/no-visible-2.png"))); // NOI18N
+        NoVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NoVerMouseClicked(evt);
+            }
+        });
+        getContentPane().add(NoVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
      
-        int variable = JOptionPane.showConfirmDialog(null, "Estas seguro de guardad");
+        int variable = JOptionPane.showConfirmDialog(null, "Estas seguro de guardar");
         if (variable == 0) {
             if (!texcodigo.getText().isEmpty()) {
                 usuarioMB usu=new usuarioMB(Integer.parseInt(texcodigo.getText()),texnombre.getText(),texusu.getText(),texcontra.getText(),Integer.parseInt(texcedula.getText()));
@@ -317,15 +282,30 @@ public class usuarios extends javax.swing.JInternalFrame {
     private void salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salir1ActionPerformed
+
+    private void VerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerMouseClicked
+        Ver.setVisible(false);
+        NoVer.setVisible(true);
+        texcontra.setEchoChar((char)0);
+    }//GEN-LAST:event_VerMouseClicked
+
+    private void NoVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NoVerMouseClicked
+        Ver.setVisible(true);
+        NoVer.setVisible(false);
+        texcontra.setEchoChar('*');
+    }//GEN-LAST:event_NoVerMouseClicked
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel NoVer;
+    private javax.swing.JLabel Ver;
     private javax.swing.JButton guardar;
     private javax.swing.JButton guardar1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -340,7 +320,7 @@ public class usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField texcedula1;
     private javax.swing.JTextField texcodigo;
     private javax.swing.JTextField texcodigo1;
-    private javax.swing.JTextField texcontra;
+    private javax.swing.JPasswordField texcontra;
     private javax.swing.JTextField texcontra1;
     private javax.swing.JTextField texnombre;
     private javax.swing.JTextField texnombre1;
