@@ -1,13 +1,40 @@
 package SistemaProductos;
 
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static SistemaProductos.Productos.lista;
+import java.util.ArrayList;
 
 public class Ventas extends javax.swing.JInternalFrame {
+    public static ArrayList <Productos_class> lista1=new ArrayList();
+    public static ArrayList <Clase_Ventas> lista=new ArrayList();
+    private DefaultTableModel modelo;
   
     public Ventas() {
         initComponents();
+        modelo=new DefaultTableModel(){
+            public boolean  celdasTabla(int fila,int columna){
+                return columna==5;   
+            }  
+        };
+        
+        modelo.addColumn("Codigo producto");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Precio unitario");
+        modelo.addColumn("Precio total");
+        modelo.setRowCount(0);
+        
+        for (int i = 0; i < lista1.size(); i++) {
+            for (int j = 0; j < lista.size(); j++) {
+                Object[] ventas=new Object[5];
+                ventas[0]=lista1.get(i).getCodigo();
+                ventas[1]=lista.get(i).getCantidad();
+                ventas[2]=lista1.get(i).getNombre();
+                ventas[3]=lista1.get(i).getPrecio();
+                ventas[4]=lista.get(i).getPrecio_total();
+                modelo.addRow(ventas);
+            }
+            tbl.setModel(modelo);
+        }           
     }
 
     @SuppressWarnings("unchecked")
@@ -177,7 +204,7 @@ public class Ventas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblMousePressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
