@@ -10,10 +10,44 @@ package SistemaProductos;
  * @author User
  */
 import SistemaProductos.Productos;
+import static SistemaProductos.Productos.lista;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+
+
 public class Lista_productos extends javax.swing.JInternalFrame {
+    private DefaultTableModel modelo;
+     Lista_productos list=new Lista_productos();
 
     public Lista_productos() {
         initComponents();
+        modelo = new DefaultTableModel() {
+            public boolean celdastabla(int fila, int columna) {
+                return columna == 6;
+
+            }
+        };
+        modelo.addColumn("CODIGO");
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("TIPO");
+        modelo.addColumn("PROVEEDOR");
+        modelo.addColumn("CALIDAD");
+        modelo.addColumn("PRECIO");
+
+        modelo.setRowCount(0);
+        for (int i = 0; i < lista.size(); i++) {
+            Object[] fila = new Object[7];
+            fila[0] = lista.get(i).getCodigo();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getTipo();
+            fila[3] = lista.get(i).getProveedor();
+            fila[7] = lista.get(i).getCalidad();
+            fila[4] = lista.get(i).getPrecio();
+            modelo.addRow(fila);
+
+        }
+
+        tabla.setModel(modelo);
     }
 
     @SuppressWarnings("unchecked")
@@ -42,6 +76,11 @@ public class Lista_productos extends javax.swing.JInternalFrame {
         jLabel1.setText("LISTA PRODUCTOS");
 
         btn_salir.setText("SALIR");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,6 +114,12 @@ public class Lista_productos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+
+    }//GEN-LAST:event_btn_salirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
