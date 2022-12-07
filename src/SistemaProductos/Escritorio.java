@@ -296,15 +296,15 @@ Ventas usuario = new Ventas();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-Lista_productos productos = new Lista_productos();
-        panelMenu.add(productos);
+Lista_productos listaproductos = new Lista_productos();
+        panelMenu.add(listaproductos);
         Dimension destopSize = panelMenu.getSize();
-        Dimension FrameSize = productos.getSize();
-        productos.setLocation(
+        Dimension FrameSize = listaproductos.getSize();
+        listaproductos.setLocation(
                 (destopSize.width - FrameSize.width) / 2,
                 (destopSize.height - FrameSize.height) / 2);
-        productos.show();
-        productos.setVisible(true);         
+        listaproductos.show();
+        listaproductos.setVisible(true);         
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
