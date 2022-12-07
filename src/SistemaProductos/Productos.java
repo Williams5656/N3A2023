@@ -99,6 +99,8 @@ public class Productos extends javax.swing.JInternalFrame {
         txt_tipo = new javax.swing.JTextField();
         btn_salir = new javax.swing.JButton();
 
+        setClosable(true);
+
         productos.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         productos.setText("PRODUCTOS");
 
