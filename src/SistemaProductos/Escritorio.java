@@ -73,8 +73,11 @@ public class Escritorio extends javax.swing.JFrame {
         panelMenu.add(lblTotal);
         lblTotal.setBounds(0, 0, 1472, 796);
 
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         jMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jMenu1.setText("USUARIOS");
+        jMenu1.setText("USUARIOS   ");
+        jMenu1.setBorderPainted(true);
         jMenu1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +106,8 @@ public class Escritorio extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jMenu2.setText("PERSONAS");
+        jMenu2.setText("PERSONAS   ");
+        jMenu2.setBorderPainted(true);
         jMenu2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
@@ -127,7 +131,8 @@ public class Escritorio extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jMenu3.setText("PRODUCTOS");
+        jMenu3.setText("PRODUCTOS   ");
+        jMenu3.setBorderPainted(true);
         jMenu3.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
@@ -151,7 +156,8 @@ public class Escritorio extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jMenu4.setText("VENTAS");
+        jMenu4.setText("VENTAS   ");
+        jMenu4.setBorderPainted(true);
         jMenu4.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/USUARIO.png"))); // NOI18N
@@ -176,7 +182,8 @@ public class Escritorio extends javax.swing.JFrame {
 
         jMenu5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu5.setForeground(new java.awt.Color(255, 0, 0));
-        jMenu5.setText("SALIR");
+        jMenu5.setText("SALIR   ");
+        jMenu5.setBorderPainted(true);
         jMenu5.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
 
         jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/EXIT.png"))); // NOI18N
