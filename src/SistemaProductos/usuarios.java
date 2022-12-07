@@ -110,13 +110,13 @@ public class usuarios extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 165, -1, -1));
 
         texcodigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 84, 208, -1));
+        getContentPane().add(texcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 84, 208, 20));
 
         texcedula.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 165, 208, -1));
+        getContentPane().add(texcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 165, 208, 20));
 
         texusu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 241, 208, -1));
+        getContentPane().add(texusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 241, 208, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("INGRESAR USUARIO");
@@ -215,7 +215,7 @@ public class usuarios extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 127, -1, -1));
 
         texnombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 127, 208, -1));
+        getContentPane().add(texnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 127, 208, 20));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 51, 51));
@@ -223,7 +223,7 @@ public class usuarios extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 206, -1, -1));
 
         texcontra.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 282, 208, -1));
+        getContentPane().add(texcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 282, 208, 20));
 
         Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
         Ver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -277,20 +277,20 @@ public class usuarios extends javax.swing.JInternalFrame {
                 .addGap(139, 139, 139))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addComponent(guardar)
-                .addGap(97, 97, 97)
-                .addComponent(salir)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardar)
-                    .addComponent(salir))
+                    .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62))
         );
 
