@@ -60,7 +60,6 @@ public class usuarios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -68,8 +67,6 @@ public class usuarios extends javax.swing.JInternalFrame {
         texcodigo = new javax.swing.JTextField();
         texcedula = new javax.swing.JTextField();
         texusu = new javax.swing.JTextField();
-        guardar = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -88,13 +85,13 @@ public class usuarios extends javax.swing.JInternalFrame {
         texcontra = new javax.swing.JPasswordField();
         Ver = new javax.swing.JLabel();
         NoVer = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        guardar = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
 
         setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("INGRESAR USUARIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 11, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("USUARIO");
@@ -111,27 +108,15 @@ public class usuarios extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("CEDULA");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 165, -1, -1));
+
+        texcodigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
         getContentPane().add(texcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 84, 208, -1));
+
+        texcedula.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
         getContentPane().add(texcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 165, 208, -1));
+
+        texusu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
         getContentPane().add(texusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 241, 208, -1));
-
-        guardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        guardar.setText("GUARDAR");
-        guardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 332, -1, -1));
-
-        salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        salir.setText("REGRESAR");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 332, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("INGRESAR USUARIO");
@@ -228,11 +213,16 @@ public class usuarios extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("NOMBRE");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 127, -1, -1));
+
+        texnombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
         getContentPane().add(texnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 127, 208, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 51, 51));
         jLabel12.setText("Crear Usuario :");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 206, -1, -1));
+
+        texcontra.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
         getContentPane().add(texcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 282, 208, -1));
 
         Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
@@ -241,7 +231,7 @@ public class usuarios extends javax.swing.JInternalFrame {
                 VerMouseClicked(evt);
             }
         });
-        getContentPane().add(Ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, 30));
+        getContentPane().add(Ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 30, 30));
 
         NoVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/no-visible-2.png"))); // NOI18N
         NoVer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -250,6 +240,61 @@ public class usuarios extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(NoVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("INGRESAR USUARIO");
+
+        guardar.setBackground(new java.awt.Color(153, 255, 153));
+        guardar.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        guardar.setText("GUARDAR");
+        guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
+
+        salir.setBackground(new java.awt.Color(255, 153, 153));
+        salir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        salir.setText("REGRESAR");
+        salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(139, 139, 139))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(guardar)
+                .addGap(97, 97, 97)
+                .addComponent(salir)
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guardar)
+                    .addComponent(salir))
+                .addGap(62, 62, 62))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -314,6 +359,7 @@ public class usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton salir;
     private javax.swing.JButton salir1;
     private javax.swing.JTextField texcedula;
