@@ -25,52 +25,57 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tipo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="codigo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="calidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="precio" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="proveedor" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="id_nombre" max="32767" attributes="0"/>
-                          <Component id="id_codigo" max="32767" attributes="0"/>
-                          <Component id="id_calidad" alignment="0" max="32767" attributes="0"/>
-                          <Component id="id_precio" max="32767" attributes="0"/>
-                          <Component id="id_proveedor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_tipo" pref="230" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
                       <Component id="productos" min="-2" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="tipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="codigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="calidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="precio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="proveedor" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btn_guardar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="id_nombre" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="id_codigo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="id_calidad" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="id_precio" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="id_proveedor" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_tipo" alignment="0" pref="230" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btn_editar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btn_eliminar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btn_limpiar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
                       <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
-                      <Component id="btn_guardar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                      <Component id="btn_editar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                      <Component id="btn_eliminar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="142" max="32767" attributes="0"/>
-                      <Component id="btn_limpiar" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -114,23 +119,16 @@
                   </Group>
                   <Component id="jScrollPane1" alignment="1" min="-2" pref="222" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="btn_guardar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_editar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn_editar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_guardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
