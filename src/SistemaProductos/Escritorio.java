@@ -32,6 +32,10 @@ public class Escritorio extends javax.swing.JFrame {
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(lblTotal.getWidth(), lblTotal.getHeight(), Image.SCALE_DEFAULT));
         lblTotal.setIcon(icono);
         this.repaint();
+        ImageIcon imagen1 = new ImageIcon("src/SistemaProductos/IMAGENES/logo2.jpg");
+        Icon icono1 = new ImageIcon(imagen1.getImage().getScaledInstance(lbTtotal2.getWidth(), lbTtotal2.getHeight(), Image.SCALE_DEFAULT));
+        lbTtotal2.setIcon(icono1);
+        this.repaint();
     }
 
     /**
@@ -44,6 +48,7 @@ public class Escritorio extends javax.swing.JFrame {
     private void initComponents() {
 
         panelMenu = new javax.swing.JDesktopPane();
+        lbTtotal2 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -63,22 +68,10 @@ public class Escritorio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelMenu.setLayer(lblTotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 1472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
-        );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
-        );
+        panelMenu.add(lbTtotal2);
+        lbTtotal2.setBounds(1100, 550, 250, 120);
+        panelMenu.add(lblTotal);
+        lblTotal.setBounds(0, 0, 1472, 796);
 
         jMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jMenu1.setText("USUARIOS");
@@ -341,6 +334,7 @@ Ventas usuario = new Ventas();
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JLabel lbTtotal2;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JDesktopPane panelMenu;
     // End of variables declaration//GEN-END:variables
