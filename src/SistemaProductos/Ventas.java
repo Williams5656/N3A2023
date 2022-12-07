@@ -5,9 +5,6 @@ import javax.swing.table.DefaultTableModel;
 import static SistemaProductos.Productos.lista;
 
 public class Ventas extends javax.swing.JInternalFrame {
-   
-    private DefaultTableModel modelo;
-    
   
     public Ventas() {
         initComponents();
