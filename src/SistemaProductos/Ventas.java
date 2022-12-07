@@ -1,50 +1,16 @@
 package SistemaProductos;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static SistemaProductos.Productos.lista;
 
 public class Ventas extends javax.swing.JInternalFrame {
-      public static ArrayList <Clase_Ventas> lista=new ArrayList();
-    //El modelo de la tabla como un pastel
+   
     private DefaultTableModel modelo;
-
+    
+  
     public Ventas() {
         initComponents();
-        modelo=new DefaultTableModel(){
-          public boolean  celdasTabla(int fila,int columna){
-              return columna==4;
-          }  
-        };
-        modelo.addColumn("Codigo producto");
-        modelo.addColumn("Cantidad");
-        modelo.addColumn("Precio unitario");
-        modelo.addColumn("Precio total");
-        modelo.setRowCount(0);
-          for (int i = 0; i < lista.size(); i++) {
-        //Nombre de las filas
-        Object [] fila=new Object[4];
-        fila[0]=lista.get(i).getCodigo_producto();
-        fila[1]=lista.get(i).getCantidad();
-        fila[2]=lista.get(i).getPrecio_unitario();
-        fila[3]=lista.get(i).getPrecio_total();
-        //Añadimos el modelo
-        modelo.addRow(fila);
-        }     
-        tbl.setModel(modelo);    
-    }
-    public void actualizar(){
-        modelo.setRowCount(0);
-        for (int i = 0; i < lista.size(); i++) {
-        //Nombre de las filas
-        Object [] fila=new Object[4];
-        fila[0]=lista.get(i).getCantidad();
-        fila[1]=lista.get(i).getCodigo_producto();
-        fila[2]=lista.get(i).getPrecio_unitario();
-        fila[3]=lista.get(i).getPrecio_total();
-        //Añadimos el modelo
-        modelo.addRow(fila);
-        } 
     }
 
     @SuppressWarnings("unchecked")
@@ -61,6 +27,7 @@ public class Ventas extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jButton2 = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -117,6 +84,13 @@ public class Ventas extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setText("Insertar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,11 +115,14 @@ public class Ventas extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator2))))
+                            .addComponent(jSeparator2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,7 +133,9 @@ public class Ventas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -184,32 +163,31 @@ public class Ventas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMousePressed
-
-    }//GEN-LAST:event_tblMousePressed
-
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        int variable=JOptionPane.showConfirmDialog(null,"Estás seguro de eliminar?");
-        if(variable==0){
-            int select=tbl.getSelectedRow();
-            lista.remove(select);
-            actualizar();
-        }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       System.exit(WIDTH);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMousePressed
+
+    }//GEN-LAST:event_tblMousePressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
