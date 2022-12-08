@@ -2,12 +2,16 @@ package SistemaProductos;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 public class Ventas extends javax.swing.JInternalFrame {
     public static ArrayList <Productos_class> lista1=new ArrayList();
     public static ArrayList <Clase_Ventas> lista=new ArrayList();
     private DefaultTableModel modelo;
-  
+    DefaultComboBoxModel modelocombo=new DefaultComboBoxModel();  
+   
+    
+    
     public Ventas() {
         initComponents();
         modelo=new DefaultTableModel(){
@@ -25,16 +29,18 @@ public class Ventas extends javax.swing.JInternalFrame {
         
         for (int i = 0; i < lista1.size(); i++) {
             for (int j = 0; j < lista.size(); j++) {
-                Object[] ventas=new Object[5];
-                ventas[0]=lista1.get(i).getCodigo();
-                ventas[1]=lista.get(i).getCantidad();
-                ventas[2]=lista1.get(i).getNombre();
-                ventas[3]=lista1.get(i).getPrecio();
-                ventas[4]=lista.get(i).getPrecio_total();
-                modelo.addRow(ventas);
+                Object[] venta=new Object[5];
+                venta[0]=lista1.get(i).getCodigo();
+                venta[1]=lista.get(i).getCantidad();
+                venta[2]=lista1.get(i).getNombre();
+                venta[3]=lista1.get(i).getPrecio();
+                venta[4]=lista.get(i).getPrecio_total();
+                modelo.addRow(venta);
             }
-            tbl.setModel(modelo);
-        }           
+            tbl.setModel(modelo);  
+ 
+        }   
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -47,7 +53,7 @@ public class Ventas extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        combos = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -93,10 +99,10 @@ public class Ventas extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tbl);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        combos.setSelectedItem(modelocombo);
+        combos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                combosActionPerformed(evt);
             }
         });
 
@@ -144,7 +150,7 @@ public class Ventas extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(combos, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2)))))
                 .addContainerGap())
@@ -158,7 +164,7 @@ public class Ventas extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,9 +197,9 @@ public class Ventas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void combosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combosActionPerformed
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_combosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       System.exit(WIDTH);
@@ -210,9 +216,9 @@ public class Ventas extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JComboBox<String> combos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
