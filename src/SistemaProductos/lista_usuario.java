@@ -23,23 +23,21 @@ public class lista_usuario extends javax.swing.JInternalFrame {
         initComponents();
         modelo = new DefaultTableModel() {
             public boolean celda(int fila, int columna) {
-                return columna == 5;
+                return columna == 4;
             }
         };
         modelo.addColumn("CODIGO");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("CEDULA");
         modelo.addColumn("USUARIO");
-        modelo.addColumn("PASSWORK");
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
 
-            Object[] fila = new Object[5];
+            Object[] fila = new Object[4];
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getCedula();
             fila[3] = lista.get(i).getUsuario();
-            fila[4] = lista.get(i).getContraseña();
             
             modelo.addRow(fila);
         }
@@ -60,6 +58,14 @@ public class lista_usuario extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         salir = new javax.swing.JButton();
+        txcod = new javax.swing.JTextField();
+        txpass = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        VER = new javax.swing.JLabel();
+        nover = new javax.swing.JLabel();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,7 +78,14 @@ public class lista_usuario extends javax.swing.JInternalFrame {
 
             }
         ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablaMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 79, 600, 210));
 
         salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         salir.setText("REGRESAR");
@@ -81,29 +94,33 @@ public class lista_usuario extends javax.swing.JInternalFrame {
                 salirActionPerformed(evt);
             }
         });
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 0, -1, -1));
+        getContentPane().add(txcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 41, 170, -1));
+        getContentPane().add(txpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 41, 172, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(salir)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(salir)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("USUARIO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 41, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("PASSWORK");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 41, -1, -1));
+
+        VER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
+        VER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VERMouseClicked(evt);
+            }
+        });
+        getContentPane().add(VER, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, -1, -1));
+
+        nover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/no-visible-2.png"))); // NOI18N
+        nover.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                noverMouseClicked(evt);
+            }
+        });
+        getContentPane().add(nover, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -112,9 +129,33 @@ public class lista_usuario extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_salirActionPerformed
 
+    private void tablaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMousePressed
+       int selec = tabla.getSelectedRow();
+        txcod.setText(lista.get(selec).getUsuario()+ "");
+        txpass.setText(lista.get(selec).getContraseña());
+    }//GEN-LAST:event_tablaMousePressed
+
+    private void VERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VERMouseClicked
+        VER.setVisible(false);
+        nover.setVisible(true);
+        txpass.setEchoChar((char)0);
+    }//GEN-LAST:event_VERMouseClicked
+
+    private void noverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noverMouseClicked
+       VER.setVisible(true);
+        nover.setVisible(false);
+        txpass.setEchoChar('*');
+    }//GEN-LAST:event_noverMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel VER;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel nover;
     private javax.swing.JButton salir;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txcod;
+    private javax.swing.JPasswordField txpass;
     // End of variables declaration//GEN-END:variables
 }

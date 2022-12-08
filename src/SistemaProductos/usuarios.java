@@ -22,7 +22,8 @@ public class usuarios extends javax.swing.JInternalFrame {
     lista_usuario li=new lista_usuario();
     public usuarios() {
         initComponents();
-        
+        texcodigo.setEditable(false);//evita editar el codigo
+        texcodigo.setText(lista.size() + 1 + "");
     }
     
    
@@ -60,12 +61,9 @@ public class usuarios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         texcodigo = new javax.swing.JTextField();
-        texcedula = new javax.swing.JTextField();
         texusu = new javax.swing.JTextField();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jLabel6 = new javax.swing.JLabel();
@@ -79,7 +77,6 @@ public class usuarios extends javax.swing.JInternalFrame {
         texnombre1 = new javax.swing.JTextField();
         guardar1 = new javax.swing.JButton();
         salir1 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
         texnombre = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         texcontra = new javax.swing.JPasswordField();
@@ -89,17 +86,13 @@ public class usuarios extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         guardar = new javax.swing.JButton();
         salir = new javax.swing.JButton();
+        texcedula = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("USUARIO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 244, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("CODIGO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 84, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("CONTRASEÑA");
@@ -109,14 +102,13 @@ public class usuarios extends javax.swing.JInternalFrame {
         jLabel5.setText("CEDULA");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 165, -1, -1));
 
+        texcodigo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         texcodigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 84, 208, 20));
+        getContentPane().add(texcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 74, 208, 30));
 
-        texcedula.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 165, 208, 20));
-
+        texusu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         texusu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 241, 208, 20));
+        getContentPane().add(texusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 231, 208, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("INGRESAR USUARIO");
@@ -210,20 +202,18 @@ public class usuarios extends javax.swing.JInternalFrame {
 
         getContentPane().add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 199, 0, 0));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setText("NOMBRE");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 127, -1, -1));
-
+        texnombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         texnombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 127, 208, 20));
+        getContentPane().add(texnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 117, 208, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 51, 51));
         jLabel12.setText("Crear Usuario :");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 206, -1, -1));
 
+        texcontra.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         texcontra.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(texcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 282, 208, 20));
+        getContentPane().add(texcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 272, 208, 30));
 
         Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
         Ver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -267,19 +257,41 @@ public class usuarios extends javax.swing.JInternalFrame {
             }
         });
 
+        texcedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        texcedula.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("CODIGO");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("NOMBRE");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("USUARIO");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(139, 139, 139))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(78, 78, 78))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -287,7 +299,15 @@ public class usuarios extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel3)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel11)
+                .addGap(21, 21, 21)
+                .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(75, 75, 75)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
