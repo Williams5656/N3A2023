@@ -9,15 +9,16 @@ package SistemaProductos;
  *
  * @author User
  */
-import SistemaProductos.Productos;
+
+import SistemaProductos.Productos_class;
 import static SistemaProductos.Productos.lista;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 
 public class Lista_productos extends javax.swing.JInternalFrame {
-    private DefaultTableModel modelo;
-     Lista_productos list=new Lista_productos();
+    public static DefaultTableModel modelo;
+    
 
     public Lista_productos() {
         initComponents();
@@ -36,7 +37,7 @@ public class Lista_productos extends javax.swing.JInternalFrame {
 
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
-            Object[] fila = new Object[7];
+            Object[] fila = new Object[6];
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
@@ -70,6 +71,14 @@ public class Lista_productos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablaMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
@@ -120,6 +129,20 @@ public class Lista_productos extends javax.swing.JInternalFrame {
         this.dispose();
 
     }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaMouseClicked
+
+    private void tablaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMousePressed
+        /*int selec = tabla.getSelectedRow();
+        id_codigo.setText(lista.get(selec).getCodigo() + "");
+        id_nombre.setText(lista.get(selec).getNombre());
+        txt_tipo.setText(lista.get(selec).getTipo());
+        id_proveedor.setText(lista.get(selec).getProveedor());
+        id_calidad.setText(lista.get(selec).getCalidad());
+        id_precio.setText(lista.get(selec).getPrecio() + "");*/
+    }//GEN-LAST:event_tablaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

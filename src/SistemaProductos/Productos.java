@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import SistemaProductos.Lista_productos;
+import SistemaProductos.Productos_class;
+import static SistemaProductos.Lista_productos.modelo;
 
 /**
  *
@@ -17,7 +19,8 @@ import SistemaProductos.Lista_productos;
 public class Productos extends javax.swing.JInternalFrame {
 
     public static ArrayList<Productos_class> lista = new ArrayList(); //para almacenar las columnas
-    private DefaultTableModel modelo; //
+    //private DefaultTableModel modelo; //
+    Lista_productos list=new Lista_productos();
 
     /**
      * Creates new form Productos
