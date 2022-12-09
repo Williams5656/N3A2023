@@ -103,7 +103,9 @@ public class Productos extends javax.swing.JInternalFrame {
         txt_tipo = new javax.swing.JTextField();
         btn_salir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setClosable(true);
+        setForeground(new java.awt.Color(204, 255, 255));
 
         productos.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         productos.setText("PRODUCTOS");
@@ -212,6 +214,12 @@ public class Productos extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_editar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_eliminar)
+                                .addGap(30, 30, 30)
+                                .addComponent(btn_limpiar))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(id_nombre, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(id_codigo, javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,18 +227,12 @@ public class Productos extends javax.swing.JInternalFrame {
                                     .addComponent(id_precio, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(id_proveedor, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_tipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
-                                .addGap(52, 52, 52)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_editar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_eliminar)
-                                .addGap(30, 30, 30)
-                                .addComponent(btn_limpiar))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(251, 251, 251)
                         .addComponent(btn_salir)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,9 +272,9 @@ public class Productos extends javax.swing.JInternalFrame {
                     .addComponent(btn_guardar)
                     .addComponent(btn_eliminar)
                     .addComponent(btn_limpiar))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(btn_salir)
-                .addGap(54, 54, 54))
+                .addGap(43, 43, 43))
         );
 
         pack();
