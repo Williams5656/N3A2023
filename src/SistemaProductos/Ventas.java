@@ -5,42 +5,30 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 public class Ventas extends javax.swing.JInternalFrame {
-    public static ArrayList <Productos_class> lista1=new ArrayList();
-    public static ArrayList <Clase_Ventas> lista=new ArrayList();
-    private DefaultTableModel modelo;
-    DefaultComboBoxModel modelocombo=new DefaultComboBoxModel();  
-   
+    private DefaultComboBoxModel<Productos_class> modeloCombo= new DefaultComboBoxModel<Productos_class>();
+    private DefaultTableModel modelo=new DefaultTableModel();
+    
     
     
     public Ventas() {
         initComponents();
-        modelo=new DefaultTableModel(){
-            public boolean  celdasTabla(int fila,int columna){
-                return columna==5;   
-            }  
-        };
-        
-        modelo.addColumn("Codigo producto");
-        modelo.addColumn("Cantidad");
-        modelo.addColumn("Descripcion");
-        modelo.addColumn("Precio unitario");
-        modelo.addColumn("Precio total");
+            
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Calidad");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Proovedor");
         modelo.setRowCount(0);
         
-        for (int i = 0; i < lista1.size(); i++) {
-            for (int j = 0; j < lista.size(); j++) {
-                Object[] venta=new Object[5];
-                venta[0]=lista1.get(i).getCodigo();
-                venta[1]=lista.get(i).getCantidad();
-                venta[2]=lista1.get(i).getNombre();
-                venta[3]=lista1.get(i).getPrecio();
-                venta[4]=lista.get(i).getPrecio_total();
-                modelo.addRow(venta);
-            }
-            tbl.setModel(modelo);  
- 
-        }   
         
+        llenarCombo();
+        
+    }
+    
+    public void llenarCombo(){
+      ArrayList<Productos_class> list = Productos.lista;
+      list.forEach((product) -> modeloCombo.addElement(product));
     }
 
     @SuppressWarnings("unchecked")
@@ -53,11 +41,11 @@ public class Ventas extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
-        combos = new javax.swing.JComboBox<>();
+        comboVentas = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
+        btnInsertar = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -81,17 +69,7 @@ public class Ventas extends javax.swing.JInternalFrame {
         tbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tbl.setForeground(new java.awt.Color(0, 204, 204));
-        tbl.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tbl.setModel(modelo);
         tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tblMousePressed(evt);
@@ -99,10 +77,10 @@ public class Ventas extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tbl);
 
-        combos.setSelectedItem(modelocombo);
-        combos.addActionListener(new java.awt.event.ActionListener() {
+        comboVentas.setModel(modeloCombo);
+        comboVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combosActionPerformed(evt);
+                comboVentasActionPerformed(evt);
             }
         });
 
@@ -114,10 +92,10 @@ public class Ventas extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Insertar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertar.setText("Insertar");
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnInsertarActionPerformed(evt);
             }
         });
 
@@ -150,9 +128,9 @@ public class Ventas extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(combos, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)))))
+                                .addComponent(btnInsertar)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -164,8 +142,8 @@ public class Ventas extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(comboVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInsertar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -197,9 +175,9 @@ public class Ventas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void combosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combosActionPerformed
+    private void comboVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVentasActionPerformed
 
-    }//GEN-LAST:event_combosActionPerformed
+    }//GEN-LAST:event_comboVentasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       System.exit(WIDTH);
@@ -209,16 +187,25 @@ public class Ventas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tblMousePressed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+      Productos_class p = (Productos_class) comboVentas.getSelectedItem();
+      int codigo=p.getCodigo();
+      String nombre=p.getNombre();
+      String tipo=p.getTipo();
+      String calidad=p.getCalidad();
+      double precio=p.getPrecio();
+      String proveedor=p.getProveedor();
+      String[] pro = {codigo+"",nombre,tipo,calidad,precio+"",proveedor};
+      modelo.addRow(pro);
+      
+    }//GEN-LAST:event_btnInsertarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JComboBox<String> combos;
+    private javax.swing.JButton btnInsertar;
+    private javax.swing.JComboBox<Productos_class> comboVentas;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;

@@ -73,4 +73,10 @@ public class Productos_class {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+    
+      @Override
+    public String toString() {
+        return "codigo:" + codigo + " " +"nombre:" + nombre;
+    }
+    
 }
