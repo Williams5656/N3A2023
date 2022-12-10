@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 public class Ventas extends javax.swing.JInternalFrame {
+     public static ArrayList <Productos_class> lista=new ArrayList();
     private DefaultComboBoxModel<Productos_class> modeloCombo= new DefaultComboBoxModel<Productos_class>();
     private DefaultTableModel modelo=new DefaultTableModel();
     
@@ -12,7 +13,7 @@ public class Ventas extends javax.swing.JInternalFrame {
     
     public Ventas() {
         initComponents();
-            
+        llenarCombo();    
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Tipo");
@@ -21,17 +22,24 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Proovedor");
         modelo.setRowCount(0);
         
-        
-        llenarCombo();
-        
+         for (int i = 0; i < lista.size(); i++) {
+        //Nombre de las filas
+        Object [] fila=new Object[6];
+        fila[0]=lista.get(i).getCodigo();
+        fila[1]=lista.get(i).getNombre();
+        fila[2]=lista.get(i).getTipo();
+        fila[3]=lista.get(i).getCalidad();
+        fila[4]=lista.get(i).getPrecio();
+        fila[5]=lista.get(i).getProveedor();
+        modelo.addRow(fila);
+        }     
+        tbl.setModel(modelo);      
     }
     
     public void llenarCombo(){
       ArrayList<Productos_class> list = Productos.lista;
       list.forEach((product) -> modeloCombo.addElement(product));
     }
-
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
