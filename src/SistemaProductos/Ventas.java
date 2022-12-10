@@ -21,7 +21,7 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Proovedor");
         modelo.setRowCount(0);
         
-        
+        //llena combo
         llenarCombo();
         
     }
