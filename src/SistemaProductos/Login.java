@@ -1,8 +1,11 @@
 package SistemaProductos;
+
 /**
  *
  * @author bryanortega
  */
+import static SistemaProductos.usuarios.lista;
+
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -155,15 +158,23 @@ public class Login extends javax.swing.JFrame {
         String usuario = "admin";
         String contraseña = "12345";
         String pass = new String(TxtPassword.getPassword()); //variable para retornar el get password en el field.
-
         Escritorio desktop = new Escritorio(); //objeto de la clase escritorio
 
         if (TxtUsuario.getText().isEmpty() || pass.isEmpty()) { // Sentencia si hay espacios vacios muestra mensaje en pantalla.
             UsuarioIncorrecto.setVisible(true); // Var si cumple, muestra mensaje en pantalla.
-        } else if (TxtUsuario.getText().equals(usuario) &&pass.equals(contraseña)) { //Sentencia si el usuario y contraseña son correctos.
+        } else {
+            for (usuarioMB mB : lista) {
+                if (TxtUsuario.getText().equals(mB.getUsuario()) || pass.equals(mB.getContraseña())) {
+                    desktop.setVisible(true); //objeto si cumple la condicion, muestra el panel del escritorio.
+                    this.dispose(); // cierra la ventana de login.hshshshshhshsshsh
+                }
+            }
+        }
+        if (TxtUsuario.getText().equals(usuario) && pass.equals(contraseña)) { //Sentencia si el usuario y contraseña son correctos.
             desktop.setVisible(true); //objeto si cumple la condicion, muestra el panel del escritorio.
             this.dispose(); // cierra la ventana de login.hshshshshhshsshsh
         }
+    
 
     }//GEN-LAST:event_BtnLoginActionPerformed
 
@@ -201,16 +212,28 @@ public class Login extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Login.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Login.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Login.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
