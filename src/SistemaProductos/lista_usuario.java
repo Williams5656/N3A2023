@@ -85,7 +85,7 @@ public class lista_usuario extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tabla);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 79, 600, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 600, 210));
 
         salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         salir.setText("REGRESAR");
@@ -94,17 +94,21 @@ public class lista_usuario extends javax.swing.JInternalFrame {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 0, -1, -1));
-        getContentPane().add(txcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 41, 170, -1));
-        getContentPane().add(txpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 41, 172, -1));
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, -1, -1));
+
+        txcod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        getContentPane().add(txcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 170, 30));
+
+        txpass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        getContentPane().add(txpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 172, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("USUARIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 41, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("PASSWORK");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 41, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         VER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
         VER.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,7 +116,7 @@ public class lista_usuario extends javax.swing.JInternalFrame {
                 VERMouseClicked(evt);
             }
         });
-        getContentPane().add(VER, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, -1, -1));
+        getContentPane().add(VER, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
 
         nover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/no-visible-2.png"))); // NOI18N
         nover.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,7 +124,7 @@ public class lista_usuario extends javax.swing.JInternalFrame {
                 noverMouseClicked(evt);
             }
         });
-        getContentPane().add(nover, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, -1, -1));
+        getContentPane().add(nover, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
