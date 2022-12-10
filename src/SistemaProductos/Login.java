@@ -73,6 +73,11 @@ public class Login extends javax.swing.JFrame {
         TxtUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtUsuario.setToolTipText("INGRESE SU USUARIO");
         TxtUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        TxtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtUsuarioMouseClicked(evt);
+            }
+        });
         jPanel1.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 111, 283, -1));
 
         BtnLogin.setBackground(new java.awt.Color(39, 110, 248));
@@ -82,7 +87,7 @@ public class Login extends javax.swing.JFrame {
         BtnLogin.setActionCommand("");
         BtnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         BtnLogin.setBorderPainted(false);
-        BtnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BtnLoginMouseEntered(evt);
@@ -113,6 +118,11 @@ public class Login extends javax.swing.JFrame {
 
         TxtPassword.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
         TxtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        TxtPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtPasswordMouseClicked(evt);
+            }
+        });
         jPanel1.add(TxtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 209, 283, -1));
 
         Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
@@ -163,6 +173,7 @@ public class Login extends javax.swing.JFrame {
         if (TxtUsuario.getText().isEmpty() || pass.isEmpty()) { // Sentencia si hay espacios vacios muestra mensaje en pantalla.
             UsuarioIncorrecto.setVisible(true); // Var si cumple, muestra mensaje en pantalla.
         } else {
+            UsuarioIncorrecto.setVisible(true); // Var si cumple, muestra mensaje en pantalla.
             for (usuarioMB mB : lista) {
                 if (TxtUsuario.getText().equals(mB.getUsuario()) || pass.equals(mB.getContraseña())) {
                     desktop.setVisible(true); //objeto si cumple la condicion, muestra el panel del escritorio.
@@ -197,6 +208,14 @@ public class Login extends javax.swing.JFrame {
         NoVer.setVisible(false);
         TxtPassword.setEchoChar('*');
     }//GEN-LAST:event_NoVerMouseClicked
+
+    private void TxtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtPasswordMouseClicked
+        UsuarioIncorrecto.setVisible(false); // Var si cumple, muestra mensaje en pantalla.
+    }//GEN-LAST:event_TxtPasswordMouseClicked
+
+    private void TxtUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtUsuarioMouseClicked
+        UsuarioIncorrecto.setVisible(false); // Var si cumple, muestra mensaje en pantalla. 
+    }//GEN-LAST:event_TxtUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
