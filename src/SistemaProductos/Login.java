@@ -175,7 +175,7 @@ public class Login extends javax.swing.JFrame {
         } else {
             UsuarioIncorrecto.setVisible(true); // Var si cumple, muestra mensaje en pantalla.
             for (usuarioMB mB : lista) {
-                if (TxtUsuario.getText().equals(mB.getUsuario()) || pass.equals(mB.getContraseña())) {
+                if (TxtUsuario.getText().equals(mB.getUsuario()) && pass.equals(mB.getContraseña())) {
                     desktop.setVisible(true); //objeto si cumple la condicion, muestra el panel del escritorio.
                     this.dispose(); // cierra la ventana de login.hshshshshhshsshsh
                 }
