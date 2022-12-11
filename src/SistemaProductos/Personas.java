@@ -78,6 +78,7 @@ public class Personas extends javax.swing.JInternalFrame {
 
         jLabel1.setText("jLabel1");
 
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
