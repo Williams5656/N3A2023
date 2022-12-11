@@ -28,16 +28,16 @@ public class Personas extends javax.swing.JInternalFrame {
 
             }
         };
+        modelo.addColumn("Cedula");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
-        modelo.addColumn("Edad");
-        modelo.addColumn("Cedula");//columnas
+        modelo.addColumn("Edad");//columnas
         modelo.addColumn("Telefono");
         modelo.addColumn("Direccion");
         modelo.setRowCount(0);//borrar modelo
         for (int i = 0; i < list.size(); i++) {
 
-            Object[] fila = new Object[6]; //filas
+            Object[] fila = new Object[7]; //filas
             fila[0] = list.get(i).getNombre();
             fila[1] = list.get(i).getApellido();
             fila[2] = list.get(i).getEdad();
@@ -222,11 +222,11 @@ public class Personas extends javax.swing.JInternalFrame {
         modelo.setRowCount(0);
         for (int i = 0; i < list.size(); i++) {
 
-            Object[] fila = new Object[6]; //filas
-            fila[0] = list.get(i).getNombre();
-            fila[1] = list.get(i).getDireccion();
-            fila[2] = list.get(i).getEdad();
-            fila[3] = list.get(i).getCedula();
+            Object[] fila = new Object[7]; //filas
+            fila[0] = list.get(i).getCedula();
+            fila[1] = list.get(i).getNombre();
+            fila[2] = list.get(i).getApellido();
+            fila[3] = list.get(i).getEdad();
             fila[4] = list.get(i).getTelefono();
             fila[5] = list.get(i).getDireccion();
             modelo.addRow(fila);
@@ -242,8 +242,7 @@ public class Personas extends javax.swing.JInternalFrame {
         int variable = JOptionPane.showConfirmDialog(null, "Desea guardar los datos?");
         if (variable == 0) {
             if ((!txtnombre.getText().isEmpty()) && (!txtapellido.getText().isEmpty()) && (!txtedad.getText().isEmpty()) && (!txtcedula.getText().isEmpty()) && (!txttelefono.getText().isEmpty()) && (!txtdireccion.getText().isEmpty())) {
-                //Productomb producto = new Productomb(Integer.parseInt(txtcod.getText(),txtconcepto.getText(),txtdis.getText(),txtmarca.getText(),txttalla.getText(),combotipo.));
-                Persona persona = new Persona(txtnombre.getText(), txtapellido.getText(), txtcedula.getText(), Integer.parseInt(txtedad.getText()), txttelefono.getText(), txtdireccion.getText());
+                Persona persona = new Persona(txtcedula.getText(), txtnombre.getText(), txtapellido.getText(), Integer.parseInt(txtedad.getText()), txttelefono.getText(), txtdireccion.getText());
                 list.add(persona);
                 limpiar();
                 actualizar();
