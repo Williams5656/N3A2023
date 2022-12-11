@@ -5,6 +5,7 @@
  */
 package SistemaProductos;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -73,6 +74,7 @@ public class Personas extends javax.swing.JInternalFrame {
         tablapersonas = new javax.swing.JTable();
         btnagregar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -89,7 +91,7 @@ public class Personas extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         jLabel4.setText("APELLIDO:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jLabel5.setText("EDAD");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 145, -1, -1));
@@ -99,10 +101,40 @@ public class Personas extends javax.swing.JInternalFrame {
 
         jLabel7.setText("TÉLEFONO");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 10));
+
+        txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 59, 180, -1));
+
+        txtapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtapellidoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 96, 180, -1));
+
+        txtedad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtedadKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 180, -1));
+
+        txttelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txttelefonoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 170, -1));
+
+        txtcedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcedulaKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 180, -1));
 
         btnlimpiar.setText("Limpiar");
@@ -113,8 +145,14 @@ public class Personas extends javax.swing.JInternalFrame {
         });
         jPanel1.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, 50));
 
-        jLabel8.setText("Direccion:");
+        jLabel8.setText("DIRECCION:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+
+        txtdireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtdireccionKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 180, -1));
 
         tablapersonas.setModel(new javax.swing.table.DefaultTableModel(
@@ -152,6 +190,14 @@ public class Personas extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, 50));
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 100, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,6 +276,66 @@ public class Personas extends javax.swing.JInternalFrame {
         txtdireccion.setText(list.get(select).getDireccion());
         txttelefono.setText(list.get(select).getTelefono());
     }//GEN-LAST:event_tablapersonasMousePressed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int variable = JOptionPane.showConfirmDialog(null, "Estas seguro de eliminar los datos?");
+        if (variable == 0) {
+            if ((!txtnombre.getText().isEmpty()) && (!txtapellido.getText().isEmpty()) && (!txtedad.getText().isEmpty()) && (!txtcedula.getText().isEmpty()) && (!txtdireccion.getText().isEmpty())  && (!txttelefono.getText().isEmpty())) {
+
+                int select = tablapersonas.getSelectedRow();
+                list.remove(select);
+                limpiar();
+                actualizar();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "no existe registro seleccionado");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+        // TODO add your handling code here:
+        Character c= evt.getKeyChar();
+        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtnombreKeyTyped
+
+    private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
+        // TODO add your handling code here:
+        Character c= evt.getKeyChar();
+        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtapellidoKeyTyped
+
+    private void txtdireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdireccionKeyTyped
+Character c= evt.getKeyChar();
+        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdireccionKeyTyped
+
+    private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
+        Character c= evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtedadKeyTyped
+
+    private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
+        Character c= evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtcedulaKeyTyped
+
+    private void txttelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelefonoKeyTyped
+        Character c= evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txttelefonoKeyTyped
     private void limpiar(){
         txtnombre.setText(null);
         txtapellido.setText(null);
@@ -251,6 +357,7 @@ public class Personas extends javax.swing.JInternalFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JLabel jLabel1;
