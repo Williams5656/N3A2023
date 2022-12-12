@@ -215,13 +215,23 @@
     <Component class="javax.swing.JTextField" name="id_codigo">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="id_codigoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="id_codigoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="id_nombre">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="id_nombreKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="id_calidad">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="id_calidadKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="id_precio">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="id_precioKeyTyped"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -256,6 +266,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="id_proveedor">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="id_proveedorKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="proveedor">
       <Properties>
@@ -266,6 +279,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_tipo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_tipoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_salir">
       <Properties>

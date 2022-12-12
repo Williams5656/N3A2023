@@ -5,12 +5,10 @@
  */
 package SistemaProductos;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import SistemaProductos.Lista_productos;
-import SistemaProductos.Productos_class;
-import static SistemaProductos.Lista_productos.modelo;
 
 /**
  *
@@ -19,8 +17,8 @@ import static SistemaProductos.Lista_productos.modelo;
 public class Productos extends javax.swing.JInternalFrame {
 
     public static ArrayList<Productos_class> lista = new ArrayList(); //para almacenar las columnas
-    //private DefaultTableModel modelo; //
-    Lista_productos list=new Lista_productos();
+    private DefaultTableModel modelo; //
+   
 
     /**
      * Creates new form Productos
@@ -38,9 +36,9 @@ public class Productos extends javax.swing.JInternalFrame {
         modelo.addColumn("CODIGO");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("TIPO");
-        modelo.addColumn("PROVEEDOR");
         modelo.addColumn("CALIDAD");
         modelo.addColumn("PRECIO");
+        modelo.addColumn("PROVEEDOR");
 
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
@@ -48,9 +46,9 @@ public class Productos extends javax.swing.JInternalFrame {
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
-            fila[3] = lista.get(i).getProveedor();
-            fila[7] = lista.get(i).getCalidad();
-            fila[4] = lista.get(i).getPrecio();
+            fila[3] = lista.get(i).getCalidad();
+            fila[7] = lista.get(i).getPrecio();
+            fila[4] = lista.get(i).getProveedor();
             modelo.addRow(fila);
 
         }
@@ -151,6 +149,29 @@ public class Productos extends javax.swing.JInternalFrame {
                 id_codigoActionPerformed(evt);
             }
         });
+        id_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                id_codigoKeyTyped(evt);
+            }
+        });
+
+        id_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                id_nombreKeyTyped(evt);
+            }
+        });
+
+        id_calidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                id_calidadKeyTyped(evt);
+            }
+        });
+
+        id_precio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                id_precioKeyTyped(evt);
+            }
+        });
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,8 +198,20 @@ public class Productos extends javax.swing.JInternalFrame {
             }
         });
 
+        id_proveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                id_proveedorKeyTyped(evt);
+            }
+        });
+
         proveedor.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         proveedor.setText("PROVEEDOR");
+
+        txt_tipo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_tipoKeyTyped(evt);
+            }
+        });
 
         btn_salir.setText("SALIR");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -285,21 +318,19 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_id_codigoActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        modelo.setRowCount(0);
-       
+        int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE GUARDAR?");
         
-
-        if (id_codigo.getText().isEmpty() || id_nombre.getText().isEmpty() || id_precio.getText().isEmpty() || txt_tipo.getText().isEmpty() || id_proveedor.getText().isEmpty()) { //aumentar el  && para completar los dem[as campos
-            JOptionPane.showMessageDialog(null, "No dejar campos vacios");
-
-        } else {
-            int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE GUARDAR?","",2);
+        //aumentar el  && para completar los dem[as campo 
             if (variable == 0) {
+                 if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!id_precio.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) && (!id_proveedor.getText().isEmpty())) {
                 Productos_class producto = new Productos_class(Integer.parseInt(id_codigo.getText()), txt_tipo.getText(), id_nombre.getText(), id_proveedor.getText(), id_calidad.getText(), Double.valueOf(id_precio.getText()));
                 lista.add(producto);
-                
                 limpiar();
                 actualizar();
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No dejar campos vacios");
+            
             }
         }
     }//GEN-LAST:event_btn_guardarActionPerformed
@@ -309,9 +340,9 @@ public class Productos extends javax.swing.JInternalFrame {
         id_codigo.setText(lista.get(selec).getCodigo() + "");
         id_nombre.setText(lista.get(selec).getNombre());
         txt_tipo.setText(lista.get(selec).getTipo());
-        id_proveedor.setText(lista.get(selec).getProveedor());
         id_calidad.setText(lista.get(selec).getCalidad());
         id_precio.setText(lista.get(selec).getPrecio() + "");
+        id_proveedor.setText(lista.get(selec).getProveedor());
 
     }//GEN-LAST:event_tablaMousePressed
 
@@ -320,7 +351,7 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
-        modelo.setRowCount(0);
+        
         int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE MODIFICAR?");
         int selec = tabla.getSelectedRow();
         lista.get(selec).setNombre(id_nombre.getText());
@@ -346,13 +377,17 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_editarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        modelo.setRowCount(0);
+        
         int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE ELIMINAR?");
         if (variable == 0) {
+            if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!id_precio.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) && (!id_proveedor.getText().isEmpty())) {
             int selec = tabla.getSelectedRow();
             lista.remove(selec);
             limpiar();
             actualizar();
+           }else {
+               JOptionPane.showMessageDialog(null, "No existe el registro"); 
+            }
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
@@ -360,6 +395,56 @@ public class Productos extends javax.swing.JInternalFrame {
         limpiar();
     }//GEN-LAST:event_btn_limpiarActionPerformed
 
+    private void id_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_id_codigoKeyTyped
+        Character c=evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_id_codigoKeyTyped
+
+    private void id_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_id_nombreKeyTyped
+        Character c= evt.getKeyChar();
+        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_id_nombreKeyTyped
+
+    private void txt_tipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tipoKeyTyped
+        Character c= evt.getKeyChar();
+        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_tipoKeyTyped
+
+    private void id_calidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_id_calidadKeyTyped
+       Character c= evt.getKeyChar();
+        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_id_calidadKeyTyped
+
+    private void id_precioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_id_precioKeyTyped
+       Character c=evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_id_precioKeyTyped
+
+    private void id_proveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_id_proveedorKeyTyped
+        Character c= evt.getKeyChar();
+        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_id_proveedorKeyTyped
+    public static void main(String[]args){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Productos().setVisible(true);
+              
+            }
+        });
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_editar;

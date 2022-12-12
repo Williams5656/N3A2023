@@ -10,13 +10,14 @@ package SistemaProductos;
  * @author User
  */
 
-import SistemaProductos.Productos_class;
+
 import static SistemaProductos.Productos.lista;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 
 public class Lista_productos extends javax.swing.JInternalFrame {
+    ArrayList<Productos_class> lista = Productos.lista;
     public static DefaultTableModel modelo;
     
 
@@ -31,24 +32,28 @@ public class Lista_productos extends javax.swing.JInternalFrame {
         modelo.addColumn("CODIGO");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("TIPO");
-        modelo.addColumn("PROVEEDOR");
         modelo.addColumn("CALIDAD");
         modelo.addColumn("PRECIO");
+        modelo.addColumn("PROVEEDOR");
+        modelo.setRowCount(0);
 
+        actualizar();
+        
+        tabla2.setModel(modelo);
+    }
+    public void actualizar() {
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
-            Object[] fila = new Object[6];
+            Object[] fila = new Object[7];
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
-            fila[3] = lista.get(i).getProveedor();
-            fila[7] = lista.get(i).getCalidad();
+            fila[3] = lista.get(i).getCalidad();
             fila[4] = lista.get(i).getPrecio();
+            fila[5] = lista.get(i).getProveedor();
             modelo.addRow(fila);
 
         }
-
-        tabla.setModel(modelo);
     }
 
     @SuppressWarnings("unchecked")
@@ -56,11 +61,11 @@ public class Lista_productos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        tabla2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btn_salir = new javax.swing.JButton();
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -71,15 +76,15 @@ public class Lista_productos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaMouseClicked(evt);
+                tabla2MouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablaMousePressed(evt);
+                tabla2MousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tabla);
+        jScrollPane1.setViewportView(tabla2);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel1.setText("LISTA PRODUCTOS");
@@ -130,19 +135,19 @@ public class Lista_productos extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btn_salirActionPerformed
 
-    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+    private void tabla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablaMouseClicked
+    }//GEN-LAST:event_tabla2MouseClicked
 
-    private void tablaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMousePressed
+    private void tabla2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla2MousePressed
       
-    }//GEN-LAST:event_tablaMousePressed
+    }//GEN-LAST:event_tabla2MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla;
+    private javax.swing.JTable tabla2;
     // End of variables declaration//GEN-END:variables
 }
