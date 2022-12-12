@@ -246,6 +246,7 @@ public class Personas extends javax.swing.JInternalFrame {
                 list.add(persona);
                 limpiar();
                 actualizar();
+             
             } else {
                 JOptionPane.showMessageDialog(null, "no dejar campos vacios");
             }
@@ -358,6 +359,8 @@ Character c= evt.getKeyChar();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btn_salir;
+    private javax.swing.JButton btn_salir1;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JLabel jLabel1;

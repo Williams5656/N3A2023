@@ -292,7 +292,15 @@ Ventas usuario = new Ventas();
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-       
+      ListaPersonas listapersonas = new ListaPersonas();
+        panelMenu.add(listapersonas);
+        Dimension destopSize = panelMenu.getSize();
+        Dimension FrameSize = listapersonas.getSize();
+        listapersonas.setLocation(
+                (destopSize.width - FrameSize.width) / 2,
+                (destopSize.height - FrameSize.height) / 2);
+        listapersonas.show();
+        listapersonas.setVisible(true);       
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed

@@ -36,6 +36,8 @@ public class Ventas extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
@@ -48,6 +50,8 @@ public class Ventas extends javax.swing.JInternalFrame {
         btnInsertar = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
+
+        jScrollPane1.setViewportView(jEditorPane1);
 
         setClosable(true);
 
@@ -206,9 +210,11 @@ public class Ventas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnInsertar;
     private javax.swing.JComboBox<Productos_class> comboVentas;
     private javax.swing.JButton jButton1;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
