@@ -74,9 +74,5 @@ public class Productos_class {
         this.precio = precio;
     }
     
-      @Override
-    public String toString() {
-        return "codigo:" + codigo + " " +"nombre:" + nombre;
-    }
     
 }
