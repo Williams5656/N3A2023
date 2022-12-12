@@ -320,9 +320,8 @@ public class Productos extends javax.swing.JInternalFrame {
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
         int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE GUARDAR?");
         
-        //aumentar el  && para completar los dem[as campo 
             if (variable == 0) {
-                 if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!id_precio.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) && (!id_proveedor.getText().isEmpty())) {
+                 if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) && (!id_calidad.getText().isEmpty())&& (!id_precio.getText().isEmpty())&& (!id_proveedor.getText().isEmpty())) {
                 Productos_class producto = new Productos_class(Integer.parseInt(id_codigo.getText()), id_nombre.getText(), txt_tipo.getText(), id_calidad.getText(), id_proveedor.getText(), Double.valueOf(id_precio.getText()));
                 lista.add(producto);
                 limpiar();
@@ -356,9 +355,9 @@ public class Productos extends javax.swing.JInternalFrame {
         int selec = tabla.getSelectedRow();
         lista.get(selec).setNombre(id_nombre.getText());
         lista.get(selec).setTipo(txt_tipo.getText());
-        lista.get(selec).setProveedor(id_proveedor.getText());
         lista.get(selec).setCalidad(id_calidad.getText());
         lista.get(selec).setPrecio(Double.valueOf(id_precio.getText()));
+        lista.get(selec).setProveedor(id_proveedor.getText());
         limpiar();
         actualizar();
 
@@ -369,9 +368,9 @@ public class Productos extends javax.swing.JInternalFrame {
         id_codigo.setText(" ");
         id_nombre.setText("");
         txt_tipo.setText("");
-        id_proveedor.setText("");
         id_calidad.setText("");
         id_precio.setText("");
+        id_proveedor.setText("");
 
 
     }//GEN-LAST:event_btn_editarActionPerformed
@@ -380,7 +379,7 @@ public class Productos extends javax.swing.JInternalFrame {
         
         int variable = JOptionPane.showConfirmDialog(null, "¿ESTÁS SEGURO DE ELIMINAR?");
         if (variable == 0) {
-            if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!id_precio.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) && (!id_proveedor.getText().isEmpty())) {
+            if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) &&(!id_calidad.getText().isEmpty())&&(!id_precio.getText().isEmpty())&& (!id_proveedor.getText().isEmpty())) {
             int selec = tabla.getSelectedRow();
             lista.remove(selec);
             limpiar();
