@@ -44,7 +44,7 @@ public class Lista_productos extends javax.swing.JInternalFrame {
     public void actualizar() {
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
-            Object[] fila = new Object[7];
+            Object[] fila = new Object[6];
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();

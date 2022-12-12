@@ -42,13 +42,13 @@ public class Productos extends javax.swing.JInternalFrame {
 
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
-            Object[] fila = new Object[7];
+            Object[] fila = new Object[6];
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
             fila[3] = lista.get(i).getCalidad();
-            fila[7] = lista.get(i).getPrecio();
-            fila[4] = lista.get(i).getProveedor();
+            fila[4] = lista.get(i).getPrecio();
+            fila[5] = lista.get(i).getProveedor();
             modelo.addRow(fila);
 
         }
@@ -63,9 +63,9 @@ public class Productos extends javax.swing.JInternalFrame {
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
-            fila[3] = lista.get(i).getProveedor();
-            fila[4] = lista.get(i).getCalidad();
-            fila[5] = lista.get(i).getPrecio();
+            fila[3] = lista.get(i).getCalidad();
+            fila[4] = lista.get(i).getPrecio();
+            fila[5] = lista.get(i).getProveedor();
             modelo.addRow(fila);
 
         }
@@ -323,7 +323,7 @@ public class Productos extends javax.swing.JInternalFrame {
         //aumentar el  && para completar los dem[as campo 
             if (variable == 0) {
                  if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!id_precio.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) && (!id_proveedor.getText().isEmpty())) {
-                Productos_class producto = new Productos_class(Integer.parseInt(id_codigo.getText()), txt_tipo.getText(), id_nombre.getText(), id_proveedor.getText(), id_calidad.getText(), Double.valueOf(id_precio.getText()));
+                Productos_class producto = new Productos_class(Integer.parseInt(id_codigo.getText()), id_nombre.getText(), txt_tipo.getText(), id_calidad.getText(), id_proveedor.getText(), Double.valueOf(id_precio.getText()));
                 lista.add(producto);
                 limpiar();
                 actualizar();
