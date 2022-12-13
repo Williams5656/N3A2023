@@ -6,20 +6,14 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class Ventas extends javax.swing.JInternalFrame {
-    public static ArrayList <Productos_class> lista=new ArrayList();
     private DefaultComboBoxModel<Productos_class> modeloCombo= new DefaultComboBoxModel<Productos_class>();
-    private DefaultTableModel modelo;
+    private DefaultTableModel modelo=new DefaultTableModel();
     
     
     
     public Ventas() {
         initComponents();
-        modelo=new DefaultTableModel(){
-          public boolean  celdasTabla(int fila,int columna){
-              return columna==6;
-          } 
-        };
-       
+            
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Tipo");
@@ -27,17 +21,6 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Precio");
         modelo.addColumn("Proovedor");
         modelo.setRowCount(0);
-        for (int i = 0; i < lista.size(); i++) {
-            Object [] fila=new Object[6];
-            fila[0]=lista.get(i).getCodigo();
-            fila[0]=lista.get(i).getNombre();
-            fila[0]=lista.get(i).getTipo();
-            fila[0]=lista.get(i).getCalidad();
-            fila[0]=lista.get(i).getPrecio();
-            fila[0]=lista.get(i).getProveedor();
-            modelo.addRow(fila);
-        }
-        tbl.setModel(modelo); 
         
         //llena combo
         llenarCombo();
@@ -208,12 +191,7 @@ public class Ventas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-int variable=JOptionPane.showConfirmDialog(null,"Estás seguro de eliminar?");
- if(variable==0){
-            int select=tbl.getSelectedRow();
-            lista.remove(select);
 
-        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void comboVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVentasActionPerformed
