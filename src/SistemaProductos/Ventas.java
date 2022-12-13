@@ -7,13 +7,15 @@ import javax.swing.JOptionPane;
 
 public class Ventas extends javax.swing.JInternalFrame {
     private DefaultComboBoxModel<Productos_class> modeloCombo= new DefaultComboBoxModel<Productos_class>();
-    private DefaultTableModel modelo=new DefaultTableModel();
-    
-    
-    
+    private DefaultTableModel modelo;  
+    public static ArrayList <Productos_class> lista=new ArrayList();
     public Ventas() {
         initComponents();
-            
+        modelo=new DefaultTableModel(){
+        public boolean  celdasTabla(int fila,int columna){
+            return columna==6;
+          }  
+        }; 
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Tipo");
@@ -22,11 +24,53 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Proovedor");
         modelo.setRowCount(0);
         
+                for (int i = 0; i < lista.size(); i++) {
+        //Nombre de las filas
+        Object [] fila=new Object[6];
+        fila[0]=lista.get(i).getCodigo();
+        fila[1]=lista.get(i).getNombre();
+        fila[2]=lista.get(i).getTipo();
+        fila[3]=lista.get(i).getCalidad();
+        fila[4]=lista.get(i).getPrecio();
+        fila[5]=lista.get(i).getProveedor();
+        
+        //Añadimos el modelo
+        modelo.addRow(fila);
+        }     
+        tbl.setModel(modelo);    
+    }
+     
+    
+    public void actualizar(){
+        modelo.setRowCount(0);
+        for (int i = 0; i < lista.size(); i++) {
+        //Nombre de las filas
+        Object [] fila=new Object[6];
+        fila[0]=lista.get(i).getCodigo();
+        fila[1]=lista.get(i).getNombre();
+        fila[2]=lista.get(i).getTipo();
+        fila[3]=lista.get(i).getCalidad();
+        fila[4]=lista.get(i).getPrecio();
+        fila[5]=lista.get(i).getProveedor();
+
+        //Añadimos el modelo
+        modelo.addRow(fila);
+        } 
+    
+
+        
+        
+        
+        
+        
+        
+        
+
         //llena combo
         llenarCombo();
         
     }
-    
+
     public void llenarCombo(){
       ArrayList<Productos_class> list = Productos.lista;
       list.forEach((product) -> modeloCombo.addElement(product));
@@ -191,7 +235,13 @@ public class Ventas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        int variable=JOptionPane.showConfirmDialog(null,"Estás seguro de eliminar?");
+        if(variable==0){
+            int select=tbl.getSelectedRow();
+            lista.remove(select);
+            
+            actualizar();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void comboVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVentasActionPerformed
@@ -199,7 +249,7 @@ public class Ventas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_comboVentasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      System.exit(WIDTH);
+    this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMousePressed
