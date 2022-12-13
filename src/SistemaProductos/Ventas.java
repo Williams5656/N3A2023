@@ -3,16 +3,23 @@ package SistemaProductos;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 public class Ventas extends javax.swing.JInternalFrame {
+    public static ArrayList <Productos_class> lista=new ArrayList();
     private DefaultComboBoxModel<Productos_class> modeloCombo= new DefaultComboBoxModel<Productos_class>();
-    private DefaultTableModel modelo=new DefaultTableModel();
+    private DefaultTableModel modelo;
     
     
     
     public Ventas() {
         initComponents();
-            
+        modelo=new DefaultTableModel(){
+          public boolean  celdasTabla(int fila,int columna){
+              return columna==6;
+          } 
+        };
+       
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Tipo");
@@ -20,6 +27,17 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Precio");
         modelo.addColumn("Proovedor");
         modelo.setRowCount(0);
+        for (int i = 0; i < lista.size(); i++) {
+            Object [] fila=new Object[6];
+            fila[0]=lista.get(i).getCodigo();
+            fila[0]=lista.get(i).getNombre();
+            fila[0]=lista.get(i).getTipo();
+            fila[0]=lista.get(i).getCalidad();
+            fila[0]=lista.get(i).getPrecio();
+            fila[0]=lista.get(i).getProveedor();
+            modelo.addRow(fila);
+        }
+        tbl.setModel(modelo); 
         
         //llena combo
         llenarCombo();
@@ -48,6 +66,7 @@ public class Ventas extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnInsertar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -62,7 +81,7 @@ public class Ventas extends javax.swing.JInternalFrame {
         jLabel5.setText("VENTAS");
 
         btnEliminar.setBackground(new java.awt.Color(179, 219, 245));
-        btnEliminar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Bodoni MT Black", 1, 18)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,10 +115,19 @@ public class Ventas extends javax.swing.JInternalFrame {
             }
         });
 
+        btnInsertar.setFont(new java.awt.Font("Bodoni MT Black", 1, 18)); // NOI18N
         btnInsertar.setText("Insertar");
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Bodoni MT Black", 1, 18)); // NOI18N
+        jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -122,7 +150,9 @@ public class Ventas extends javax.swing.JInternalFrame {
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(btnEliminar)))
+                                .addComponent(btnEliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -151,7 +181,9 @@ public class Ventas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnEliminar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminar)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -176,7 +208,12 @@ public class Ventas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+int variable=JOptionPane.showConfirmDialog(null,"Estás seguro de eliminar?");
+ if(variable==0){
+            int select=tbl.getSelectedRow();
+            lista.remove(select);
 
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void comboVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVentasActionPerformed
@@ -204,12 +241,17 @@ public class Ventas extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_btnInsertarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JComboBox<Productos_class> comboVentas;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
