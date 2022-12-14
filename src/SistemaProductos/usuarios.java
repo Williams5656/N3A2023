@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import SistemaProductos.lista_usuario;
 import SistemaProductos.usuarioMB;
 import static SistemaProductos.lista_usuario.modelo;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 
 /**
@@ -21,10 +22,32 @@ public class usuarios extends javax.swing.JInternalFrame {
 
     public static ArrayList<usuarioMB> lista = new ArrayList();
     lista_usuario li=new lista_usuario();
+    public static DefaultTableModel modelo2;
     public usuarios() {
         initComponents();
         texcodigo.setEditable(false);//evita editar el codigo
+        modelo2 = new DefaultTableModel() {
+            public boolean celda(int fila, int columna) {
+                return columna == 4;
+            }
+        };
+        modelo2.addColumn("CODIGO");
+        modelo2.addColumn("NOMBRE");
+        modelo2.addColumn("CEDULA");
+        modelo2.addColumn("USUARIO");
+        modelo2.setRowCount(0);
+        for (int i = 0; i < lista.size(); i++) {
+
+            Object[] fila = new Object[4];
+            fila[0] = lista.get(i).getCodigo();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getCedula();
+            fila[3] = lista.get(i).getUsuario();
+            
+            modelo2.addRow(fila);
+        }
         
+        tlblista.setModel(modelo2);
     }
     
    
@@ -62,8 +85,6 @@ public class usuarios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -76,33 +97,31 @@ public class usuarios extends javax.swing.JInternalFrame {
         texnombre1 = new javax.swing.JTextField();
         guardar1 = new javax.swing.JButton();
         salir1 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        Ver = new javax.swing.JLabel();
-        NoVer = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         guardar = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
+        actua = new javax.swing.JButton();
         texcedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         texnombre = new javax.swing.JTextField();
         texcodigo = new javax.swing.JTextField();
         texusu = new javax.swing.JTextField();
         texcontra = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        Ver = new javax.swing.JLabel();
+        NoVer = new javax.swing.JLabel();
+        salir2 = new javax.swing.JButton();
+        modif = new javax.swing.JButton();
+        elimi = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tlblista = new javax.swing.JTable();
 
         setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("CONTRASEÑA");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 282, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("CEDULA");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 165, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("INGRESAR USUARIO");
@@ -196,34 +215,15 @@ public class usuarios extends javax.swing.JInternalFrame {
 
         getContentPane().add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 199, 0, 0));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel12.setText("Crear Usuario :");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 206, -1, -1));
-
-        Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
-        Ver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                VerMouseClicked(evt);
-            }
-        });
-        getContentPane().add(Ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 30, 30));
-
-        NoVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/no-visible-2.png"))); // NOI18N
-        NoVer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NoVerMouseClicked(evt);
-            }
-        });
-        getContentPane().add(NoVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
-
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setText("INGRESAR USUARIO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, -1, -1));
 
-        guardar.setBackground(new java.awt.Color(153, 255, 153));
+        guardar.setBackground(new java.awt.Color(102, 255, 102));
         guardar.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         guardar.setText("GUARDAR");
         guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -232,16 +232,18 @@ public class usuarios extends javax.swing.JInternalFrame {
                 guardarActionPerformed(evt);
             }
         });
+        jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 80, 30));
 
-        salir.setBackground(new java.awt.Color(255, 153, 153));
-        salir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        salir.setText("REGRESAR");
-        salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        salir.addActionListener(new java.awt.event.ActionListener() {
+        actua.setBackground(new java.awt.Color(102, 255, 102));
+        actua.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        actua.setText("ACTUALIZAR");
+        actua.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        actua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
+                actuaActionPerformed(evt);
             }
         });
+        jPanel1.add(actua, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 90, 30));
 
         texcedula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texcedula.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
@@ -250,17 +252,19 @@ public class usuarios extends javax.swing.JInternalFrame {
                 texcedulaKeyTyped(evt);
             }
         });
+        jPanel1.add(texcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 150, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("CODIGO");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("NOMBRE");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("USUARIO");
-
-        jLabel13.setText("10 DIGITOS");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         texnombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texnombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
@@ -269,79 +273,103 @@ public class usuarios extends javax.swing.JInternalFrame {
                 texnombreKeyTyped(evt);
             }
         });
+        jPanel1.add(texnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 150, 30));
 
         texcodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texcodigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
+        jPanel1.add(texcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 40, 30));
 
         texusu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texusu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
+        jPanel1.add(texusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 160, 30));
 
         texcontra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texcontra.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(0, 0, 0)));
+        jPanel1.add(texcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(texcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(texusu, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(texcontra, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel13)))))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(texcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(texnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(texcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(texusu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(texcontra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62))
-        );
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("CEDULA");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 420));
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel12.setText("Crear Usuario :");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("CONTRASEÑA");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/ver-2.png"))); // NOI18N
+        Ver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VerMouseClicked(evt);
+            }
+        });
+        jPanel1.add(Ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 30, 30));
+
+        NoVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaProductos/IMAGENES/no-visible-2.png"))); // NOI18N
+        NoVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NoVerMouseClicked(evt);
+            }
+        });
+        jPanel1.add(NoVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
+
+        salir2.setBackground(new java.awt.Color(255, 153, 153));
+        salir2.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        salir2.setText("REGRESAR");
+        salir2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        salir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salir2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(salir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 83, 30));
+
+        modif.setBackground(new java.awt.Color(102, 255, 102));
+        modif.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        modif.setText("MODIFICAR");
+        modif.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        modif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifActionPerformed(evt);
+            }
+        });
+        jPanel1.add(modif, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 83, 30));
+
+        elimi.setBackground(new java.awt.Color(102, 255, 102));
+        elimi.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        elimi.setText("ELIMINAR");
+        elimi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        elimi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elimiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(elimi, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 83, 30));
+
+        tlblista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tlblista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tlblistaMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tlblista);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 330, 200));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -365,9 +393,20 @@ public class usuarios extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_guardarActionPerformed
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-       this.dispose();
-    }//GEN-LAST:event_salirActionPerformed
+    private void actuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actuaActionPerformed
+       modelo2.setRowCount(0);
+        
+        for (int i = 0; i < lista.size(); i++) {
+            
+        Object[] fila = new Object[5];
+        fila[0] = lista.get(i).getCodigo();
+        fila[1] = lista.get(i).getNombre();
+        fila[2] = lista.get(i).getCedula();
+        fila[3] = lista.get(i).getUsuario();
+        fila[4] = lista.get(i).getContraseña();
+        modelo2.addRow(fila);
+        }
+    }//GEN-LAST:event_actuaActionPerformed
 
     private void guardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar1ActionPerformed
         // TODO add your handling code here:
@@ -401,12 +440,55 @@ public class usuarios extends javax.swing.JInternalFrame {
         if(!Character.isDigit(c)){
             evt.consume();
         }
+        if (texcedula.getText().length()>9) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_texcedulaKeyTyped
+
+    private void salir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_salir2ActionPerformed
+
+    private void modifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifActionPerformed
+        int select=tlblista.getSelectedRow();
+         lista.get(select).setNombre(texnombre.getText());
+         lista.get(select).setCedula(Integer.parseInt(texcedula.getText()));
+         lista.get(select).setUsuario(texusu.getText());
+         lista.get(select).setContraseña(texcontra.getText());
+         limpiar();
+         actualizar();
+    }//GEN-LAST:event_modifActionPerformed
+
+    private void elimiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elimiActionPerformed
+        int variable = JOptionPane.showConfirmDialog(null, "Estas seguro de eliminar los datos?");
+        if (variable == 0) {
+            if ((!texcodigo.getText().isEmpty()) && (!texnombre.getText().isEmpty()) && (!texcedula.getText().isEmpty()) && (!texusu.getText().isEmpty()) && (!texcontra.getText().isEmpty())) {
+                int select = tlblista.getSelectedRow();
+                lista.remove(select);
+                limpiar();
+                actualizar();
+            } else {
+                JOptionPane.showMessageDialog(null, "no existe registro seleccionado");
+            }
+        }
+    }//GEN-LAST:event_elimiActionPerformed
+
+    private void tlblistaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlblistaMousePressed
+        int select=tlblista.getSelectedRow();
+        texcodigo.setText(lista.get(select).getCodigo()+ "");
+        texnombre.setText(lista.get(select).getNombre());
+        texcedula.setText(lista.get(select).getCedula()+ "");
+        texusu.setText(lista.get(select).getUsuario());
+        texcontra.setText(lista.get(select).getContraseña());
+    }//GEN-LAST:event_tlblistaMousePressed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NoVer;
     private javax.swing.JLabel Ver;
+    private javax.swing.JButton actua;
+    private javax.swing.JButton elimi;
     private javax.swing.JButton guardar;
     private javax.swing.JButton guardar1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -414,7 +496,6 @@ public class usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -424,8 +505,10 @@ public class usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton salir;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton modif;
     private javax.swing.JButton salir1;
+    private javax.swing.JButton salir2;
     private javax.swing.JTextField texcedula;
     private javax.swing.JTextField texcedula1;
     private javax.swing.JTextField texcodigo;
@@ -435,5 +518,6 @@ public class usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField texnombre;
     private javax.swing.JTextField texnombre1;
     private javax.swing.JTextField texusu;
+    private javax.swing.JTable tlblista;
     // End of variables declaration//GEN-END:variables
 }

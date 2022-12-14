@@ -87,6 +87,7 @@ public class lista_usuario extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 600, 210));
 
+        salir.setBackground(new java.awt.Color(255, 102, 102));
         salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         salir.setText("REGRESAR");
         salir.addActionListener(new java.awt.event.ActionListener() {
