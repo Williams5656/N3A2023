@@ -15,19 +15,17 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Precio total");
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {
-          for (int j = 0; j < lista2.size(); j++) {
-              Object [] ventas=new Object[4];
-              ventas[0]=lista.get(i).getNombre();
-              ventas[1]=lista.get(i).getPrecio();
-              ventas[2]=lista2.get(i).getCantidad();
-              ventas[3]=lista2.get(i).getPrecio_total();
-              modelo.addRow(ventas);
-          }  
-          
+            for (int j = 0; j < lista2.size(); j++) {
+                Object [] ventas=new Object[4];
+                ventas[0]=lista.get(i).getNombre();
+                ventas[1]=lista.get(i).getPrecio();
+                ventas[2]=lista2.get(i).getCantidad();
+                ventas[3]=lista2.get(i).getPrecio_total();
+                modelo.addRow(ventas);
+            }  
         }
     }
     
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -158,10 +156,11 @@ public class Ventas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Comproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbprecio))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Comproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbprecio)))))
                 .addGap(24, 24, 24)
                 .addComponent(btnInsertar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
