@@ -214,8 +214,6 @@ public class Productos extends javax.swing.JInternalFrame {
             }
         });
 
-        txt_tipo.setText("jTextField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
