@@ -23,8 +23,8 @@ public class Ventas extends javax.swing.JInternalFrame {
                 ventas[3]=lista2.get(i).getPrecio_total();
                 modelo.addRow(ventas);
             }  
+            Comproducto.addItem(lista.get(i).getNombre());
         }
-        
     }
     
 
