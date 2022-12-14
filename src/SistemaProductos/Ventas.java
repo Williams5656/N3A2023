@@ -1,4 +1,5 @@
 package SistemaProductos;
+
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ public class Ventas extends javax.swing.JInternalFrame {
                 ventas[1]=lista.get(i).getPrecio();
                 ventas[2]=lista2.get(i).getCantidad();
                 ventas[3]=lista2.get(i).getPrecio_total();
-                modelo.addRow(ventas);
+                
             }  
             Comproducto.addItem(lista.get(i).getNombre());
         }
