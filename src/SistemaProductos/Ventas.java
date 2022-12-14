@@ -24,6 +24,7 @@ public class Ventas extends javax.swing.JInternalFrame {
                 modelo.addRow(ventas);
             }  
         }
+        
     }
     
 
