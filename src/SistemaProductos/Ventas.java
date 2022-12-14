@@ -1,18 +1,12 @@
 package SistemaProductos;
-
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
 
 public class Ventas extends javax.swing.JInternalFrame {
-    private DefaultComboBoxModel<Productos_class> modeloCombo= new DefaultComboBoxModel<Productos_class>();
+    public static ArrayList <Productos_class> lista=new ArrayList();
+    public static ArrayList <Clase_Ventas> lista2=new ArrayList();
     private DefaultTableModel modelo=new DefaultTableModel();
-    
-   
-    
-    
-    
+
     public Ventas() {
         initComponents();
         modelo.addColumn("Nombre");
@@ -20,16 +14,19 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio total");
         modelo.setRowCount(0);
-        
-        //llena combo
-        llenarCombo();
-        
+        for (int i = 0; i < lista.size(); i++) {
+          for (int j = 0; j < lista2.size(); j++) {
+              Object [] ventas=new Object[4];
+              ventas[0]=lista.get(i).getNombre();
+              ventas[1]=lista.get(i).getPrecio();
+              ventas[2]=lista2.get(i).getCantidad();
+              ventas[3]=lista2.get(i).getPrecio_total();
+              modelo.addRow(ventas);
+          }  
+          
+        }
     }
     
-    public void llenarCombo(){
-       ArrayList<Productos_class> list = Productos.lista;
-      list.forEach((product) -> modeloCombo.addElement(product));
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
