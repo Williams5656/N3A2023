@@ -36,7 +36,7 @@ public class Productos extends javax.swing.JInternalFrame {
         modelo.addColumn("CODIGO");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("TIPO");
-        modelo.addColumn("CALIDAD");
+        modelo.addColumn("CANTIDAD");
         modelo.addColumn("PRECIO");
         modelo.addColumn("PROVEEDOR");
 
@@ -46,7 +46,7 @@ public class Productos extends javax.swing.JInternalFrame {
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
-            fila[3] = lista.get(i).getCalidad();
+            fila[3] = lista.get(i).getCantidad();
             fila[4] = lista.get(i).getPrecio();
             fila[5] = lista.get(i).getProveedor();
             modelo.addRow(fila);
@@ -63,7 +63,7 @@ public class Productos extends javax.swing.JInternalFrame {
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
-            fila[3] = lista.get(i).getCalidad();
+            fila[3] = lista.get(i).getCantidad();
             fila[4] = lista.get(i).getPrecio();
             fila[5] = lista.get(i).getProveedor();
             modelo.addRow(fila);
@@ -98,8 +98,8 @@ public class Productos extends javax.swing.JInternalFrame {
         btn_limpiar = new javax.swing.JButton();
         id_proveedor = new javax.swing.JTextField();
         proveedor = new javax.swing.JLabel();
-        txt_tipo = new javax.swing.JTextField();
         btn_salir = new javax.swing.JButton();
+        txt_tipo = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 255, 255));
         setClosable(true);
@@ -207,18 +207,14 @@ public class Productos extends javax.swing.JInternalFrame {
         proveedor.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         proveedor.setText("PROVEEDOR");
 
-        txt_tipo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_tipoKeyTyped(evt);
-            }
-        });
-
         btn_salir.setText("SALIR");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirActionPerformed(evt);
             }
         });
+
+        txt_tipo.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,14 +249,14 @@ public class Productos extends javax.swing.JInternalFrame {
                                 .addGap(30, 30, 30)
                                 .addComponent(btn_limpiar))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(id_nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(id_nombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                                     .addComponent(id_codigo, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(id_calidad, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(id_precio, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(id_proveedor, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_tipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                    .addComponent(txt_tipo))
+                                .addGap(14, 14, 14)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(251, 251, 251)
@@ -322,7 +318,7 @@ public class Productos extends javax.swing.JInternalFrame {
         
             if (variable == 0) {
                  if ((!id_codigo.getText().isEmpty()) && (!id_nombre.getText().isEmpty()) && (!txt_tipo.getText().isEmpty()) && (!id_calidad.getText().isEmpty())&& (!id_precio.getText().isEmpty())&& (!id_proveedor.getText().isEmpty())) {
-                Productos_class producto = new Productos_class(Integer.parseInt(id_codigo.getText()), id_nombre.getText(), txt_tipo.getText(), id_calidad.getText(), id_proveedor.getText(), Double.valueOf(id_precio.getText()));
+                Productos_class producto = new Productos_class(Integer.parseInt(id_codigo.getText()), id_nombre.getText(), txt_tipo.getText(), id_proveedor.getText(),Integer.parseInt(id_calidad.getText()), Double.valueOf(id_precio.getText()));
                 lista.add(producto);
                 limpiar();
                 actualizar();
@@ -339,7 +335,7 @@ public class Productos extends javax.swing.JInternalFrame {
         id_codigo.setText(lista.get(selec).getCodigo() + "");
         id_nombre.setText(lista.get(selec).getNombre());
         txt_tipo.setText(lista.get(selec).getTipo());
-        id_calidad.setText(lista.get(selec).getCalidad());
+        id_calidad.setText(lista.get(selec).getCantidad()+"");
         id_precio.setText(lista.get(selec).getPrecio() + "");
         id_proveedor.setText(lista.get(selec).getProveedor());
 
@@ -355,7 +351,7 @@ public class Productos extends javax.swing.JInternalFrame {
         int selec = tabla.getSelectedRow();
         lista.get(selec).setNombre(id_nombre.getText());
         lista.get(selec).setTipo(txt_tipo.getText());
-        lista.get(selec).setCalidad(id_calidad.getText());
+        lista.get(selec).setCantidad(Integer.parseInt(id_calidad.getText()));
         lista.get(selec).setPrecio(Double.valueOf(id_precio.getText()));
         lista.get(selec).setProveedor(id_proveedor.getText());
         limpiar();
@@ -364,8 +360,13 @@ public class Productos extends javax.swing.JInternalFrame {
     }
 
     public void limpiar() {
-       
-        id_codigo.setText(" ");
+         for(int i=0;i<lista.size();i++){
+           int a = lista.size()+1;
+           if(lista.get(i).getCodigo()==a){
+             id_codigo.setText(lista.size()+234+"");  
+           }
+       }
+        id_codigo.setText(lista.size()+1+"");
         id_nombre.setText("");
         txt_tipo.setText("");
         id_calidad.setText("");
@@ -408,16 +409,9 @@ public class Productos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_id_nombreKeyTyped
 
-    private void txt_tipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tipoKeyTyped
-        Character c= evt.getKeyChar();
-        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
-            evt.consume();
-        }
-    }//GEN-LAST:event_txt_tipoKeyTyped
-
     private void id_calidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_id_calidadKeyTyped
-       Character c= evt.getKeyChar();
-        if(!Character.isLetter(c)&& c!=KeyEvent.VK_SPACE){
+        Character c=evt.getKeyChar();
+        if(!Character.isDigit(c)){
             evt.consume();
         }
     }//GEN-LAST:event_id_calidadKeyTyped

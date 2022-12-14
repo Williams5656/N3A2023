@@ -32,7 +32,7 @@ public class Lista_productos extends javax.swing.JInternalFrame {
         modelo.addColumn("CODIGO");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("TIPO");
-        modelo.addColumn("CALIDAD");
+        modelo.addColumn("CANTIDAD");
         modelo.addColumn("PRECIO");
         modelo.addColumn("PROVEEDOR");
         modelo.setRowCount(0);
@@ -48,7 +48,7 @@ public class Lista_productos extends javax.swing.JInternalFrame {
             fila[0] = lista.get(i).getCodigo();
             fila[1] = lista.get(i).getNombre();
             fila[2] = lista.get(i).getTipo();
-            fila[3] = lista.get(i).getCalidad();
+            fila[3] = lista.get(i).getCantidad();
             fila[4] = lista.get(i).getPrecio();
             fila[5] = lista.get(i).getProveedor();
             modelo.addRow(fila);

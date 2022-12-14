@@ -14,15 +14,15 @@ public class Productos_class {
     String nombre;
     String tipo;
     String proveedor;
-    String calidad;
+    int cantidad;
     double precio;
 
-    public Productos_class(int codigo, String nombre, String tipo, String proveedor, String calidad, double precio) {
+    public Productos_class(int codigo, String nombre, String tipo, String proveedor, int cantidad, double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.tipo = tipo;
         this.proveedor = proveedor;
-        this.calidad = calidad;
+        this.cantidad = cantidad;
         this.precio = precio;
     }
 
@@ -58,12 +58,12 @@ public class Productos_class {
         this.proveedor = proveedor;
     }
 
-    public String getCalidad() {
-        return calidad;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setCalidad(String calidad) {
-        this.calidad = calidad;
+    public void setCantidad(int calidad) {
+        this.cantidad = cantidad;
     }
 
     public double getPrecio() {

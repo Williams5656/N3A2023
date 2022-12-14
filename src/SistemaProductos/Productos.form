@@ -63,15 +63,15 @@
                               <Component id="btn_limpiar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="id_nombre" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="id_nombre" alignment="0" pref="230" max="32767" attributes="0"/>
                                   <Component id="id_codigo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="id_calidad" alignment="0" max="32767" attributes="0"/>
                                   <Component id="id_precio" alignment="0" max="32767" attributes="0"/>
                                   <Component id="id_proveedor" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txt_tipo" alignment="0" pref="230" max="32767" attributes="0"/>
+                                  <Component id="txt_tipo" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -278,11 +278,6 @@
         <Property name="text" type="java.lang.String" value="PROVEEDOR"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_tipo">
-      <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_tipoKeyTyped"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btn_salir">
       <Properties>
         <Property name="text" type="java.lang.String" value="SALIR"/>
@@ -290,6 +285,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salirActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_tipo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
