@@ -15,13 +15,10 @@ public class Ventas extends javax.swing.JInternalFrame {
     
     public Ventas() {
         initComponents();
-            
-        modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Tipo");
-        modelo.addColumn("Calidad");
         modelo.addColumn("Precio");
-        modelo.addColumn("Proovedor");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Precio total");
         modelo.setRowCount(0);
         
         //llena combo
