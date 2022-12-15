@@ -4,6 +4,7 @@ public class Clase_Ventas {
     
    
     int cantidad;
+    
     double precio_total;
 
     public Clase_Ventas(int cantidad, double precio_total) {

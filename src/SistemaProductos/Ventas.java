@@ -2,12 +2,13 @@ package SistemaProductos;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Ventas extends javax.swing.JInternalFrame {
-    public static ArrayList <Productos_class> lista=new ArrayList();
-    public static ArrayList <Clase_Ventas> lista2=new ArrayList();
+    ArrayList<Productos_class> list = Productos.lista;
+    
     private DefaultTableModel modelo=new DefaultTableModel();
-
+    
     public Ventas() {
         initComponents();
         modelo.addColumn("Nombre");
@@ -15,16 +16,14 @@ public class Ventas extends javax.swing.JInternalFrame {
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio total");
         modelo.setRowCount(0);
-        for (int i = 0; i < lista.size(); i++) {
-            for (int j = 0; j < lista2.size(); j++) {
-                Object [] ventas=new Object[4];
-                ventas[0]=lista.get(i).getNombre();
-                ventas[1]=lista.get(i).getPrecio();
-                ventas[2]=lista2.get(i).getCantidad();
-                ventas[3]=lista2.get(i).getPrecio_total();
+        for (int i = 0; i < list.size(); i++) {
+            
+                Object [] ventas=new Object[2];
+                ventas[0]=list.get(i).getNombre();
+                ventas[1]=list.get(i).getPrecio();
                 
-            }  
-            Comproducto.addItem(lista.get(i).getNombre());
+             
+            Comproducto.addItem(list.get(i).getNombre());
         }
     }
     
@@ -198,12 +197,15 @@ public class Ventas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblMousePressed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-
+      int variable = JOptionPane.showConfirmDialog(null, "Desea guardar los datos?");
+      if (variable == 0) {
+         
+      }
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void ComproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComproductoActionPerformed
 int select=(Integer) Comproducto.getSelectedIndex();
-ArrayList<Productos_class> list = Productos.lista;
+
 Double precio=list.get(select).getPrecio();
 lbprecio.setText(precio+" ");
     }//GEN-LAST:event_ComproductoActionPerformed
