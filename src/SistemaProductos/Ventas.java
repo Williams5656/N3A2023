@@ -8,10 +8,12 @@ public class Ventas extends javax.swing.JInternalFrame {
 
     public static ArrayList<Clase_Ventas> listaVentas = new ArrayList();
     ArrayList<Productos_class> list = Productos.lista;
-    private DefaultTableModel modelo=new DefaultTableModel();;
+    private DefaultTableModel modelo = new DefaultTableModel();
+
+    ;
 
     public Ventas() {
-        initComponents();   
+        initComponents();
         modelo.addColumn("Nombre");
         modelo.addColumn("Precio");
         modelo.addColumn("Cantidad");
@@ -23,8 +25,8 @@ public class Ventas extends javax.swing.JInternalFrame {
         actualizar();
         tblVentas.setModel(modelo);
     }
-    
-     public void actualizar() {
+
+    public void actualizar() {
         modelo.setRowCount(0);
         for (int i = 0; i < listaVentas.size(); i++) {
 
@@ -34,12 +36,13 @@ public class Ventas extends javax.swing.JInternalFrame {
             fila[2] = listaVentas.get(i).getCantidad();
             fila[3] = listaVentas.get(i).getPrecio_total();
             modelo.addRow(fila);
-            
+
         }
-        
+
     }
 
     public void agregarProductos() {
+
         for (int i = 0; i < list.size(); i++) {
 
             Object[] ventas = new Object[2];
@@ -49,8 +52,12 @@ public class Ventas extends javax.swing.JInternalFrame {
             Comproducto.addItem(list.get(i).getNombre());
         }
     }
-    
-    
+
+    public void limpiar() {
+        Comproducto.setSelectedItem(listaVentas.get(0).getNombre());
+        lbprecio.setText(listaVentas.get(0).getPrecio() + "");
+        spinnerCantidad.setValue(0);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -73,6 +80,8 @@ public class Ventas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         lbprecio = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnAct = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -113,6 +122,11 @@ public class Ventas extends javax.swing.JInternalFrame {
             }
         });
 
+        Comproducto.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComproductoItemStateChanged(evt);
+            }
+        });
         Comproducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComproductoActionPerformed(evt);
@@ -129,6 +143,22 @@ public class Ventas extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Precio");
+
+        btnAct.setFont(new java.awt.Font("Bodoni MT Black", 1, 18)); // NOI18N
+        btnAct.setText("Actualizar");
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setFont(new java.awt.Font("Bodoni MT Black", 1, 18)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,23 +177,31 @@ public class Ventas extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnInsertar)
                                 .addComponent(jSeparator2)
                                 .addComponent(jScrollPane2)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel1)
                                         .addComponent(Comproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbprecio)
-                                        .addComponent(jLabel3))
-                                    .addGap(41, 41, 41)
+                                        .addComponent(jLabel3)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(lbprecio)))
+                                    .addGap(58, 58, 58)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2)
-                                        .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(45, 45, 45))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnInsertar)
+                                    .addGap(33, 33, 33)
+                                    .addComponent(btnAct)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnEliminar)))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,24 +212,29 @@ public class Ventas extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Comproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbprecio)))))
-                .addGap(24, 24, 24)
-                .addComponent(btnInsertar)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Comproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbprecio)
+                            .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)))
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnAct))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -217,7 +260,10 @@ public class Ventas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tblVentasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVentasMousePressed
-
+        int select = tblVentas.getSelectedRow();
+        Comproducto.setSelectedItem(listaVentas.get(select).getNombre());
+        lbprecio.setText(listaVentas.get(select).getPrecio() + "");
+        spinnerCantidad.setValue(listaVentas.get(select).getCantidad());
     }//GEN-LAST:event_tblVentasMousePressed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
@@ -230,9 +276,10 @@ public class Ventas extends javax.swing.JInternalFrame {
                 Clase_Ventas cv = new Clase_Ventas(Comproducto.getSelectedItem().toString(), spinnerCantidad.getValue().hashCode(), Double.parseDouble(lbprecio.getText()), precioTotal);
                 listaVentas.add(cv);
                 actualizar();
+                limpiar();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No dejar campos vacios");
+            JOptionPane.showMessageDialog(null, "No dejar campos vacios y la cantidad debe ser mayor que 0");
         }
 
 
@@ -244,8 +291,51 @@ public class Ventas extends javax.swing.JInternalFrame {
         lbprecio.setText(precio + " ");
     }//GEN-LAST:event_ComproductoActionPerformed
 
+    private void ComproductoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComproductoItemStateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_ComproductoItemStateChanged
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        // TODO add your handling code here:
+        if (!(Comproducto.getSelectedItem() == null) && (!lbprecio.getText().isEmpty()) && !(spinnerCantidad.getValue().hashCode() <= 0)) {
+            int variable = JOptionPane.showConfirmDialog(null, "Desea actualizar los datos?");
+            if (variable == 0) {
+                int select = tblVentas.getSelectedRow();
+                listaVentas.get(select).setNombre(Comproducto.getSelectedItem().toString());
+                listaVentas.get(select).setCantidad(spinnerCantidad.getValue().hashCode());
+                listaVentas.get(select).setPrecio(Double.parseDouble(lbprecio.getText()));
+                double precioTotal = spinnerCantidad.getValue().hashCode() * Double.parseDouble(lbprecio.getText());
+                listaVentas.get(select).setPrecio_total(precioTotal);
+                limpiar();
+                actualizar();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "no dejar campos vacios");
+        }
+
+    }//GEN-LAST:event_btnActActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        if (!(Comproducto.getSelectedItem() == null) && (!lbprecio.getText().isEmpty()) && !(spinnerCantidad.getValue().hashCode() <= 0)) {
+            int variable = JOptionPane.showConfirmDialog(null, "Desea eliminar los datos?");
+            if (variable == 0) {
+                int select = tblVentas.getSelectedRow();
+                listaVentas.remove(select);
+                limpiar();
+                actualizar();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No existe registro seleccionado");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Comproducto;
+    private javax.swing.JButton btnAct;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton jButton1;
     private javax.swing.JEditorPane jEditorPane1;
