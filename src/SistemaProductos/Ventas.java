@@ -5,27 +5,51 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Ventas extends javax.swing.JInternalFrame {
+
+    public static ArrayList<Clase_Ventas> listaVentas = new ArrayList();
     ArrayList<Productos_class> list = Productos.lista;
-    
-    private DefaultTableModel modelo=new DefaultTableModel();
-    
+    private DefaultTableModel modelo=new DefaultTableModel();;
+
     public Ventas() {
-        initComponents();
+        initComponents();   
         modelo.addColumn("Nombre");
         modelo.addColumn("Precio");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio total");
         modelo.setRowCount(0);
-        for (int i = 0; i < list.size(); i++) {
+        //Añade los nombres de los productos al combo
+        agregarProductos();
+        //Lleno mi tabla con los objetos de venta
+        actualizar();
+        tblVentas.setModel(modelo);
+    }
+    
+     public void actualizar() {
+        modelo.setRowCount(0);
+        for (int i = 0; i < listaVentas.size(); i++) {
+
+            Object[] fila = new Object[4]; //filas
+            fila[0] = listaVentas.get(i).getNombre();
+            fila[1] = listaVentas.get(i).getPrecio();
+            fila[2] = listaVentas.get(i).getCantidad();
+            fila[3] = listaVentas.get(i).getPrecio_total();
+            modelo.addRow(fila);
             
-                Object [] ventas=new Object[2];
-                ventas[0]=list.get(i).getNombre();
-                ventas[1]=list.get(i).getPrecio();
-                
-             
+        }
+        
+    }
+
+    public void agregarProductos() {
+        for (int i = 0; i < list.size(); i++) {
+
+            Object[] ventas = new Object[2];
+            ventas[0] = list.get(i).getNombre();
+            ventas[1] = list.get(i).getPrecio();
+
             Comproducto.addItem(list.get(i).getNombre());
         }
     }
+    
     
 
     @SuppressWarnings("unchecked")
@@ -38,13 +62,13 @@ public class Ventas extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbl = new javax.swing.JTable();
+        tblVentas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnInsertar = new javax.swing.JButton();
         Comproducto = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
+        spinnerCantidad = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbprecio = new javax.swing.JLabel();
@@ -62,16 +86,16 @@ public class Ventas extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
         jLabel5.setText("VENTAS");
 
-        tbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tbl.setForeground(new java.awt.Color(0, 204, 204));
-        tbl.setModel(modelo);
-        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblVentas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblVentas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tblVentas.setForeground(new java.awt.Color(0, 204, 204));
+        tblVentas.setModel(modelo);
+        tblVentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tblMousePressed(evt);
+                tblVentasMousePressed(evt);
             }
         });
-        jScrollPane2.setViewportView(tbl);
+        jScrollPane2.setViewportView(tblVentas);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("SALIR");
@@ -137,7 +161,7 @@ public class Ventas extends javax.swing.JInternalFrame {
                                     .addGap(41, 41, 41)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2)
-                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -159,7 +183,7 @@ public class Ventas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(Comproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbprecio)))))
@@ -189,25 +213,35 @@ public class Ventas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void tblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMousePressed
+    private void tblVentasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVentasMousePressed
 
-    }//GEN-LAST:event_tblMousePressed
+    }//GEN-LAST:event_tblVentasMousePressed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-      int variable = JOptionPane.showConfirmDialog(null, "Desea guardar los datos?");
-      if (variable == 0) {
-         
-      }
+
+        if (!(Comproducto.getSelectedItem() == null) && (!lbprecio.getText().isEmpty()) && !(spinnerCantidad.getValue().hashCode() <= 0)) {
+            int variable = JOptionPane.showConfirmDialog(null, "Desea guardar los datos?");
+            if (variable == 0) {
+                //Lleno mi objeto ventas
+                double precioTotal = spinnerCantidad.getValue().hashCode() * Double.parseDouble(lbprecio.getText());
+                Clase_Ventas cv = new Clase_Ventas(Comproducto.getSelectedItem().toString(), spinnerCantidad.getValue().hashCode(), Double.parseDouble(lbprecio.getText()), precioTotal);
+                listaVentas.add(cv);
+                actualizar();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No dejar campos vacios");
+        }
+
+
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void ComproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComproductoActionPerformed
-int select=(Integer) Comproducto.getSelectedIndex();
-
-Double precio=list.get(select).getPrecio();
-lbprecio.setText(precio+" ");
+        int select = (Integer) Comproducto.getSelectedIndex();
+        Double precio = list.get(select).getPrecio();
+        lbprecio.setText(precio + " ");
     }//GEN-LAST:event_ComproductoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -225,8 +259,8 @@ lbprecio.setText(precio+" ");
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lbprecio;
-    private javax.swing.JTable tbl;
+    private javax.swing.JSpinner spinnerCantidad;
+    private javax.swing.JTable tblVentas;
     // End of variables declaration//GEN-END:variables
 }
